@@ -1,0 +1,53 @@
+---
+import "@styles/styles.scss";
+
+const { seo } = Astro.props as {
+  seo?: {
+    title: string;
+    description: string;
+  };
+};
+const title = seo?.title ?? "Aduoer Music - 听见你的每一种声音";
+const description =
+  seo?.description ??
+  "Aduoer 是为 Apple 平台打造的多音乐源播放器，连接在线服务、自建媒体库、NAS 与本地文件。";
+const baseUrl = import.meta.env.BASE_URL;
+const normalizedBaseUrl = `${baseUrl.replace(/\/+$/, "")}/`;
+const assetUrl = (path: string) =>
+  `${normalizedBaseUrl}${path.replace(/^\/+/, "")}`;
+---
+
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#ed3561" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href={assetUrl("app-icon.png")} />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={new URL(assetUrl("og.png"), Astro.url)}
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={new URL(assetUrl("og.png"), Astro.url)}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

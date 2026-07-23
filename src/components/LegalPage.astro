@@ -1,0 +1,239 @@
+---
+type Kind = "privacy" | "terms" | "cookies";
+
+const { kind } = Astro.props as { kind: Kind };
+const baseUrl = import.meta.env.BASE_URL;
+const normalizedBaseUrl = `${baseUrl.replace(/\/+$/, "")}/`;
+
+const pages = {
+  privacy: {
+    zh: {
+      title: "隐私政策",
+      intro: "本政策说明 Aduoer 与本网站如何处理与你有关的信息。",
+      sections: [
+        [
+          "我们处理的信息",
+          "Aduoer 会连接你主动配置的音乐源。账号、服务器地址与凭据仅用于完成连接，并由 App 在你的设备上保存。",
+        ],
+        [
+          "音乐源与第三方服务",
+          "当你播放、搜索、收藏或下载内容时，请求会发送到你选择的音乐源或自建服务器。相关服务会依据各自的隐私政策处理数据。",
+        ],
+        [
+          "本网站",
+          "本网站目前不提供账号系统，也不收集你的曲库、播放记录或音乐文件。网站只在浏览器本地保存语言偏好。",
+        ],
+        [
+          "联系我们",
+          "如有隐私问题，请通过 Aduoer Music 的 GitHub 组织页面提交 Issue。",
+        ],
+      ],
+    },
+    en: {
+      title: "Privacy Policy",
+      intro:
+        "This policy explains how Aduoer and this website handle information related to you.",
+      sections: [
+        [
+          "Information we process",
+          "Aduoer connects to music sources you configure. Account details, server addresses, and credentials are used only for that connection and are stored by the app on your device.",
+        ],
+        [
+          "Music sources and third parties",
+          "Playback, search, favorites, and downloads send requests to your selected music source or self-hosted server. Those services process data under their own privacy policies.",
+        ],
+        [
+          "This website",
+          "This website currently has no account system and does not collect your library, listening history, or music files. It only stores your language preference locally in the browser.",
+        ],
+        [
+          "Contact",
+          "For privacy questions, open an issue through the Aduoer Music organization on GitHub.",
+        ],
+      ],
+    },
+  },
+  terms: {
+    zh: {
+      title: "服务条款",
+      intro: "使用 Aduoer 或本网站即表示你理解以下使用边界。",
+      sections: [
+        [
+          "使用范围",
+          "Aduoer 目前仍在开发中，功能、兼容性、价格与可用地区可能在正式发布前调整。",
+        ],
+        [
+          "你的责任",
+          "你需要确保自己有权访问、播放和下载所连接音乐源中的内容，并遵守所在地区的法律与服务条款。",
+        ],
+        [
+          "第三方服务",
+          "Aduoer 可连接 Jellyfin、Navidrome、WebDAV、SMB 等服务，但不隶属于、也不代表这些第三方服务。",
+        ],
+        [
+          "可用性",
+          "我们会持续改进产品，但不承诺开发版本始终无错误或不中断。App Store 下载入口会在正式上架后更新。",
+        ],
+      ],
+    },
+    en: {
+      title: "Terms of Use",
+      intro:
+        "By using Aduoer or this website, you acknowledge the following boundaries.",
+      sections: [
+        [
+          "Scope",
+          "Aduoer is still in development. Features, compatibility, pricing, and available regions may change before release.",
+        ],
+        [
+          "Your responsibility",
+          "You are responsible for having the right to access, play, and download content from connected music sources and for following applicable laws and service terms.",
+        ],
+        [
+          "Third-party services",
+          "Aduoer can connect to services such as Jellyfin, Navidrome, WebDAV, and SMB, but is not affiliated with or acting on behalf of those services.",
+        ],
+        [
+          "Availability",
+          "We continue to improve the product but do not promise that development builds are always error-free or uninterrupted. The App Store link will be added after release.",
+        ],
+      ],
+    },
+  },
+  cookies: {
+    zh: {
+      title: "Cookie 政策",
+      intro: "本网站保持简单，不使用广告或行为追踪 Cookie。",
+      sections: [
+        [
+          "当前使用情况",
+          "本网站目前不使用广告 Cookie、跨站追踪 Cookie 或第三方分析 Cookie。",
+        ],
+        [
+          "本地语言偏好",
+          "当你手动选择中文或英文时，网站会在浏览器本地存储这一偏好，以便下次继续使用相同语言。",
+        ],
+        [
+          "外部链接",
+          "访问 GitHub 等外部网站后，对方可能按照其自身政策使用 Cookie 或其他存储技术。",
+        ],
+        [
+          "政策更新",
+          "如果未来加入分析或其他需要 Cookie 的功能，我们会在启用前更新本页面。",
+        ],
+      ],
+    },
+    en: {
+      title: "Cookie Policy",
+      intro:
+        "This website stays simple and does not use advertising or behavioral tracking cookies.",
+      sections: [
+        [
+          "Current use",
+          "This website currently uses no advertising cookies, cross-site tracking cookies, or third-party analytics cookies.",
+        ],
+        [
+          "Local language preference",
+          "When you choose Chinese or English, the website stores that preference locally in your browser so it can use the same language next time.",
+        ],
+        [
+          "External links",
+          "After you visit an external site such as GitHub, that service may use cookies or storage technologies under its own policy.",
+        ],
+        [
+          "Policy updates",
+          "If analytics or another cookie-dependent feature is added later, this page will be updated before it is enabled.",
+        ],
+      ],
+    },
+  },
+} as const;
+
+const page = pages[kind];
+---
+
+<header class="legal-header">
+  <div class="page-width legal-header__inner">
+    <a class="brand" href={normalizedBaseUrl}>
+      <img src={`${normalizedBaseUrl}app-icon.png`} alt="" />
+      <span>Aduoer</span>
+    </a>
+    <div class="language-switch" aria-label="Language">
+      <button type="button" data-language-button="zh">中文</button>
+      <span aria-hidden="true"></span>
+      <button type="button" data-language-button="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="legal-page page-width">
+  <div class="legal-page__intro">
+    <p class="eyebrow">ADUOER · LEGAL</p>
+    <h1 data-title="zh">{page.zh.title}</h1>
+    <h1 data-title="en" hidden>{page.en.title}</h1>
+    <p data-intro="zh">{page.zh.intro}</p>
+    <p data-intro="en" hidden>{page.en.intro}</p>
+  </div>
+
+  <article class="legal-copy" data-language-copy="zh">
+    {
+      page.zh.sections.map(([title, text]) => (
+        <section>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </section>
+      ))
+    }
+  </article>
+
+  <article class="legal-copy" data-language-copy="en" hidden>
+    {
+      page.en.sections.map(([title, text]) => (
+        <section>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </section>
+      ))
+    }
+  </article>
+</main>
+
+<script is:inline>
+  const savedLanguage = localStorage.getItem("aduoer-language");
+  let language =
+    savedLanguage === "zh" || savedLanguage === "en"
+      ? savedLanguage
+      : navigator.language.toLowerCase().startsWith("zh")
+        ? "zh"
+        : "en";
+
+  function applyLanguage(nextLanguage) {
+    language = nextLanguage;
+    document.documentElement.lang = language === "zh" ? "zh-Hans" : "en";
+    document.querySelectorAll("[data-language-copy]").forEach((element) => {
+      element.hidden = element.dataset.languageCopy !== language;
+    });
+    document.querySelectorAll("[data-title]").forEach((element) => {
+      element.hidden = element.dataset.title !== language;
+    });
+    document.querySelectorAll("[data-intro]").forEach((element) => {
+      element.hidden = element.dataset.intro !== language;
+    });
+    document.querySelectorAll("[data-language-button]").forEach((element) => {
+      element.setAttribute(
+        "aria-pressed",
+        String(element.dataset.languageButton === language),
+      );
+    });
+  }
+
+  document.querySelectorAll("[data-language-button]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextLanguage = button.dataset.languageButton;
+      localStorage.setItem("aduoer-language", nextLanguage);
+      applyLanguage(nextLanguage);
+    });
+  });
+
+  applyLanguage(language);
+</script>

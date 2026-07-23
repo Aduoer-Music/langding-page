@@ -1,0 +1,19 @@
+---
+import Layout from "Layout.astro";
+
+const baseUrl = `${import.meta.env.BASE_URL.replace(/\/+$/, "")}/`;
+---
+
+<Layout
+  seo={{
+    title: "Aduoer Music",
+    description: "Aduoer App Store 下载入口尚未开放。",
+  }}
+>
+  <main class="app-redirect">
+    <img src={`${baseUrl}app-icon.png`} alt="" />
+    <h1>App Store 上线准备中</h1>
+    <p>下载入口会在 Aduoer 正式上架后开放。</p>
+    <a href={baseUrl}>返回首页</a>
+  </main>
+</Layout>

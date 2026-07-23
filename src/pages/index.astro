@@ -1,0 +1,14 @@
+---
+import HomePage from "@modules/home";
+import Layout from "Layout.astro";
+---
+
+<Layout
+  seo={{
+    title: "Aduoer Music - 听见你的每一种声音",
+    description:
+      "Aduoer 是为 Apple 平台打造的多音乐源播放器，连接在线服务、自建媒体库、NAS 与本地文件。",
+  }}
+>
+  <HomePage client:load />
+</Layout>
