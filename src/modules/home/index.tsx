@@ -41,12 +41,12 @@ const content = {
       pending: "App Store 上线准备中",
       openSource: "在 GitHub 了解项目",
       note: "专为 Apple 平台打造 · 暂无 Android 版本",
-      screenLabel: "完全使用 mock 数据的产品画面",
+      screenLabel: "Aduoer Music iOS 产品界面",
     },
     proof: [
       { value: "6+", label: "音乐源类型" },
       { value: "1", label: "统一曲库体验" },
-      { value: "100%", label: "mock 截图内容" },
+      { value: "iOS", label: "原生播放器体验" },
     ],
     origins: {
       eyebrow: "ONE LIBRARY",
@@ -83,14 +83,14 @@ const content = {
       eyebrow: "A QUIET INTERFACE",
       title: "让界面退后，让音乐靠前",
       subtitle:
-        "首页、播放器、歌词与歌单详情均来自 iOS 模拟器，并由本地 WoW mock 服务提供完全虚构的数据。",
+        "从发现音乐到沉浸播放，再到逐句歌词与歌单管理，常用操作始终清晰顺手。",
       labels: ["首页", "正在播放", "全屏歌词", "歌单详情"],
     },
     pricing: {
       eyebrow: "LAUNCH PLAN",
       title: "先把体验做好，再公布价格",
       subtitle:
-        "Aduoer 尚未上架 App Store。正式价格与可用地区会在上线前公布，我们不会在信息不完整时展示虚构套餐。",
+        "Aduoer 尚未上架 App Store。正式价格、可用地区与下载方式会在上线前公布。",
       plan: "Aduoer for Apple",
       price: "待公布",
       priceNote: "上线前更新",
@@ -105,32 +105,37 @@ const content = {
     },
     faq: {
       eyebrow: "FAQ",
-      title: "你可能想知道",
+      title: "关于 Aduoer",
       items: [
         {
-          question: "Aduoer 支持哪些音乐来源？",
+          question: "Aduoer 是音乐平台还是音乐播放器？",
           answer:
-            "当前项目支持 Wow、Jellyfin、Navidrome、本地文件、WebDAV 与 SMB。不同音乐源的能力会略有差异。",
+            "Aduoer 是一款音乐播放器，不提供曲库或音乐订阅。你可以连接自己的音乐服务、家庭媒体库，或播放设备中的本地文件。",
         },
         {
-          question: "可以离线听歌吗？",
+          question: "开始使用前需要准备什么？",
           answer:
-            "可以。Aduoer 支持下载专辑、歌单与单曲，并提供独立的下载队列和本地内容管理。",
+            "安装后添加你正在使用的音乐源即可。当前支持 Wow、Jellyfin、Navidrome、WebDAV、SMB 与本地文件，部分来源需要填写服务地址和账号信息。",
         },
         {
-          question: "网站中的歌曲和封面是真的吗？",
+          question: "可以同时添加多个音乐源吗？",
           answer:
-            "不是。为了避免音乐版权风险，网站中的产品截图全部使用骨架屏、几何封面与 mock 文案，不包含真实歌曲内容。",
+            "可以。你可以在 Aduoer 中添加并切换多个音乐源，并使用一致的浏览、搜索和播放界面。具体功能会根据音乐源提供的能力有所不同。",
         },
         {
-          question: "什么时候可以从 App Store 下载？",
+          question: "没有网络时还能播放吗？",
           answer:
-            "目前还没有确定的上架日期，因此网站不会跳转到无效商店地址。上线后会第一时间更新下载入口。",
+            "可以。提前下载的歌曲和设备中的本地文件都能离线播放；可下载的内容与音质取决于对应音乐源。",
         },
         {
-          question: "会推出 Android 版本吗？",
+          question: "Aduoer 支持哪些设备？",
           answer:
-            "目前没有 Android App，Aduoer 现阶段专注于 Apple 平台，因此页面不展示 Google Play 入口。",
+            "Aduoer 目前面向 iPhone 与 iPad 开发，暂时没有 Android 版本。具体系统版本要求会在 App Store 上架时公布。",
+        },
+        {
+          question: "什么时候上架，如何收费？",
+          answer:
+            "目前还没有确定的上架日期和正式价格。App Store 下载入口、可用地区与收费方式会在发布前同步更新。",
         },
       ],
     },
@@ -166,12 +171,12 @@ const content = {
       pending: "Preparing for the App Store",
       openSource: "Explore the project on GitHub",
       note: "Built for Apple platforms · No Android version",
-      screenLabel: "Product visuals made entirely with mock data",
+      screenLabel: "Aduoer Music for iOS",
     },
     proof: [
       { value: "6+", label: "source types" },
       { value: "1", label: "unified library" },
-      { value: "100%", label: "mock screenshots" },
+      { value: "iOS", label: "native player experience" },
     ],
     origins: {
       eyebrow: "ONE LIBRARY",
@@ -208,14 +213,14 @@ const content = {
       eyebrow: "A QUIET INTERFACE",
       title: "The interface steps back. Your music moves forward.",
       subtitle:
-        "Home, player, lyrics, and playlist screens come from the iOS Simulator, backed by a local WoW mock service with entirely fictional data.",
+        "From discovery and immersive playback to synced lyrics and playlist management, every core action stays clear and close at hand.",
       labels: ["Home", "Now Playing", "Full-screen lyrics", "Playlist detail"],
     },
     pricing: {
       eyebrow: "LAUNCH PLAN",
       title: "Experience first. Pricing when it is ready.",
       subtitle:
-        "Aduoer is not yet available on the App Store. Final pricing and regions will be published before launch, so there are no invented plans here.",
+        "Aduoer is not yet available on the App Store. Final pricing, supported regions, and download details will be published before launch.",
       plan: "Aduoer for Apple",
       price: "To be announced",
       priceNote: "Updated before launch",
@@ -230,32 +235,37 @@ const content = {
     },
     faq: {
       eyebrow: "FAQ",
-      title: "A few useful answers",
+      title: "About Aduoer",
       items: [
         {
-          question: "Which music sources does Aduoer support?",
+          question: "Is Aduoer a music service or a music player?",
           answer:
-            "The current project supports Wow, Jellyfin, Navidrome, local files, WebDAV, and SMB. Available features can vary by source.",
+            "Aduoer is a music player. It does not provide a catalog or music subscription. You can connect your own music service, home media library, or files stored on your device.",
         },
         {
-          question: "Can I listen offline?",
+          question: "What do I need to get started?",
           answer:
-            "Yes. Aduoer can download albums, playlists, and tracks, with a dedicated download queue and local content management.",
+            "Add the music source you already use after installing the app. Aduoer currently supports Wow, Jellyfin, Navidrome, WebDAV, SMB, and local files. Some sources require a server address and account details.",
         },
         {
-          question: "Are the songs and covers on this site real?",
+          question: "Can I add more than one music source?",
           answer:
-            "No. To avoid music copyright risk, every product screenshot uses skeleton states, geometric covers, and mock labels only.",
+            "Yes. You can add and switch between multiple sources while using the same browsing, search, and playback interface. Available features may vary by source.",
         },
         {
-          question: "When will it be available on the App Store?",
+          question: "Can I listen without an internet connection?",
           answer:
-            "There is no confirmed release date yet, so the site does not link to an invalid store page. The download entry will be updated at launch.",
+            "Yes. Tracks downloaded in advance and files stored on your device remain available offline. Download availability and audio quality depend on the connected source.",
         },
         {
-          question: "Is there an Android version?",
+          question: "Which devices does Aduoer support?",
           answer:
-            "There is currently no Android app. Aduoer is focused on Apple platforms, so no Google Play entry is shown.",
+            "Aduoer is currently being built for iPhone and iPad. There is no Android version at this time. Final system requirements will be published with the App Store release.",
+        },
+        {
+          question: "When will Aduoer launch, and how much will it cost?",
+          answer:
+            "A release date and final pricing have not been announced. The App Store link, supported regions, and pricing model will be updated before launch.",
         },
       ],
     },
@@ -510,7 +520,7 @@ function Home() {
             {t.hero.note}
           </p>
         </div>
-        <p className="hero__mock-note">
+        <p className="hero__product-note">
           <CheckIcon aria-hidden="true" />
           {t.hero.screenLabel}
         </p>

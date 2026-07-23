@@ -405,7 +405,7 @@ img {
   height: 48%;
 }
 
-.hero__mock-note {
+.hero__product-note {
   position: absolute;
   z-index: 12;
   right: max(24px, calc((100vw - var(--page)) / 2));
@@ -418,7 +418,7 @@ img {
   font-size: 12px;
 }
 
-.hero__mock-note svg {
+.hero__product-note svg {
   width: 15px;
   height: 15px;
 }
@@ -1259,7 +1259,7 @@ img {
     right: 10%;
   }
 
-  .hero__mock-note {
+  .hero__product-note {
     right: 18px;
     bottom: 18px;
   }
@@ -1375,7 +1375,7 @@ img {
     height: 349px;
   }
 
-  .hero__mock-note {
+  .hero__product-note {
     bottom: 14px;
     max-width: 210px;
     text-align: right;
