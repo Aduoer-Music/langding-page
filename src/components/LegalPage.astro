@@ -1,54 +1,210 @@
 ---
 type Kind = "privacy" | "terms" | "cookies";
+type LegalSection = readonly [
+  title: string,
+  body: string | readonly string[],
+  items?: readonly string[],
+];
+type LegalContent = {
+  title: string;
+  intro: string;
+  updated?: string;
+  sections: readonly LegalSection[];
+};
+type LegalPageDefinition = {
+  zh: LegalContent;
+  en: LegalContent;
+};
 
 const { kind } = Astro.props as { kind: Kind };
 const baseUrl = import.meta.env.BASE_URL;
 const normalizedBaseUrl = `${baseUrl.replace(/\/+$/, "")}/`;
 
-const pages = {
+const pages: Record<Kind, LegalPageDefinition> = {
   privacy: {
     zh: {
       title: "隐私政策",
-      intro: "本政策说明 Aduoer 与本网站如何处理与你有关的信息。",
+      intro:
+        "本政策说明 Aduoer Music（以下简称“Aduoer”）及其官方网站如何处理与你有关的信息，以及你可以如何管理这些信息。",
+      updated: "生效及更新日期：2026 年 7 月 24 日",
       sections: [
         [
-          "我们处理的信息",
-          "Aduoer 会连接你主动配置的音乐源。账号、服务器地址与凭据仅用于完成连接，并由 App 在你的设备上保存。",
+          "一、适用范围",
+          [
+            "本政策适用于 Aduoer iOS App 及 Aduoer 官方网站。Aduoer 是一款连接用户自有或获授权音乐源的播放器，本身不提供公共音乐内容账户。",
+            "你通过 Aduoer 连接的音乐源、自建服务器、局域网设备或其他第三方服务由相应运营方独立处理数据，并受其自身隐私政策和服务条款约束。",
+          ],
         ],
         [
-          "音乐源与第三方服务",
-          "当你播放、搜索、收藏或下载内容时，请求会发送到你选择的音乐源或自建服务器。相关服务会依据各自的隐私政策处理数据。",
+          "二、Aduoer 处理的信息",
+          "为了提供连接、浏览、播放、搜索、收藏、缓存和下载等功能，Aduoer 可能在你的设备上处理以下信息：",
+          [
+            "音乐源配置，例如服务类型、服务器地址、共享目录和自定义请求头。",
+            "连接凭据，例如用户名、访问令牌或密码。",
+            "曲库与播放数据，例如曲目、专辑、歌手、歌单、播放记录、收藏和队列。",
+            "设备端数据，例如 App 设置、缓存、下载文件、曲库索引和故障状态。",
+            "你主动发送的反馈内容，例如电子邮件地址、问题描述和附件。",
+          ],
         ],
         [
-          "本网站",
-          "本网站目前不提供账号系统，也不收集你的曲库、播放记录或音乐文件。网站只在浏览器本地保存语言偏好。",
+          "三、信息如何被使用",
+          "上述信息仅用于你请求的产品功能，包括建立音乐源连接、展示和检索曲库、播放媒体、保存偏好、提供离线内容、排查故障、回复反馈以及维护产品安全。Aduoer 不会将这些信息用于广告画像或跨 App 追踪。",
         ],
         [
-          "联系我们",
-          "如有隐私问题，请通过 Aduoer Music 的 GitHub 组织页面提交 Issue。",
+          "四、本地存储与凭据",
+          [
+            "App 设置、曲库索引、播放记录、收藏、缓存和下载内容通常保存在你的设备上。音乐源账号、令牌和密码通过 Apple 提供的系统钥匙串保存。",
+            "Aduoer 不运营用于同步这些本地资料的用户账户系统。任何设备备份或钥匙串同步行为由你的 Apple 系统设置及 Apple 的相关服务决定。",
+          ],
+        ],
+        [
+          "五、网络访问和第三方服务",
+          [
+            "当你播放、搜索、收藏、下载、匹配元数据或使用演唱相关功能时，Aduoer 会向你选择或配置的服务发送完成请求所必需的数据。服务运营方可能接收到账号标识、请求内容、IP 地址和设备网络信息。",
+            "当你使用 SMB、WebDAV 或其他局域网音乐源时，Aduoer 仅访问你指定的服务器和共享目录。为降低风险，请在服务支持时使用 HTTPS 或其他安全连接。",
+            "Aduoer 可能调用 Apple 提供的 Siri、快捷指令、Spotlight、媒体控制和系统备份能力。相关系统功能由 Apple 按其隐私政策处理。",
+          ],
+        ],
+        [
+          "六、信息共享、出售和追踪",
+          [
+            "Aduoer 不出售或出租你的个人信息，不包含广告网络，也不进行跨 App 或跨网站追踪。",
+            "只有在你主动连接服务、为实现你请求的功能、遵守法律义务，或保护用户与产品安全所必需时，相关信息才可能发送给对应的服务提供方。我们要求代表我们处理信息的服务提供方采取与本政策相当的保护措施。",
+          ],
+        ],
+        [
+          "七、官方网站",
+          [
+            "Aduoer 官方网站不提供用户账户，不读取你的曲库、播放记录或音乐文件，也不使用广告 Cookie、跨站追踪 Cookie 或第三方行为分析 Cookie。",
+            "网站会在浏览器本地保存你的语言选择。网站托管和网络服务提供方可能为交付页面、安全防护和故障排查处理 IP 地址、浏览器信息及基础访问日志，并依据其自身隐私政策处理这些信息。",
+          ],
+        ],
+        [
+          "八、保存期限和删除",
+          [
+            "设备端信息会保留到你在 App 中清除、删除对应音乐源或卸载 Aduoer。你可以在设置中移除音乐源并清理缓存；移除音乐源后，已经下载的文件会继续保留，直到你主动删除。",
+            "通过系统卸载 Aduoer 会删除 App 容器中的本地数据。钥匙串项目和系统备份的具体清理由 Apple 平台规则决定。发送给第三方音乐源的数据应按照该服务提供的方式删除。",
+            "你主动发送给我们的反馈会在处理问题及履行合理的安全、审计或法律义务所需期间内保存，之后删除或匿名化。",
+          ],
+        ],
+        [
+          "九、信息安全",
+          "我们采用与数据性质相适应的技术和组织措施保护信息，包括使用系统钥匙串保存凭据、限制数据用途和减少不必要的数据传输。但任何存储或网络传输方式都无法保证绝对安全，你也应妥善保护设备、账号和音乐源凭据。",
+        ],
+        [
+          "十、你的选择与权利",
+          [
+            "你可以选择不添加音乐源、删除音乐源、清除缓存和下载、调整系统权限或卸载 App。你还可以通过所连接服务的管理界面访问、更正或删除由该服务保存的信息。",
+            "根据你所在地区的法律，你可能享有访问、更正、删除、限制处理、撤回同意或投诉等权利。对于由我们直接持有的反馈信息，你可以通过下方邮箱提出请求；我们可能需要验证请求人的身份。",
+          ],
+        ],
+        [
+          "十一、儿童隐私",
+          "Aduoer 是面向一般用户的音乐播放器，并非专门面向儿童设计。我们不会明知故意收集法律规定的儿童个人信息。监护人如认为儿童向我们提交了个人信息，请联系我们处理。",
+        ],
+        [
+          "十二、政策变更",
+          "我们可能因产品功能、技术、服务提供方或法律要求变化而更新本政策。重要变更会通过本页面、App 内提示或其他适当方式说明，并更新页面顶部的日期。",
+        ],
+        [
+          "十三、联系我们",
+          [
+            "如果你对本政策、Aduoer 的隐私实践或信息请求有疑问，请通过以下邮箱联系我们：",
+            "feedback@waizx.com",
+          ],
         ],
       ],
     },
     en: {
       title: "Privacy Policy",
       intro:
-        "This policy explains how Aduoer and this website handle information related to you.",
+        'This policy explains how Aduoer Music ("Aduoer") and its official website handle information related to you and how you can manage that information.',
+      updated: "Effective and last updated: July 24, 2026",
       sections: [
         [
-          "Information we process",
-          "Aduoer connects to music sources you configure. Account details, server addresses, and credentials are used only for that connection and are stored by the app on your device.",
+          "1. Scope",
+          [
+            "This policy applies to the Aduoer iOS app and the official Aduoer website. Aduoer is a player that connects to music sources you own or are authorized to access; it does not provide a public music-content account.",
+            "Music sources, self-hosted servers, local-network devices, and other third-party services you connect through Aduoer process data independently under their own privacy policies and terms.",
+          ],
         ],
         [
-          "Music sources and third parties",
-          "Playback, search, favorites, and downloads send requests to your selected music source or self-hosted server. Those services process data under their own privacy policies.",
+          "2. Information Aduoer processes",
+          "To provide connection, browsing, playback, search, favorites, caching, and download features, Aduoer may process the following information on your device:",
+          [
+            "Music-source configuration, such as service type, server address, shared directory, and custom request headers.",
+            "Connection credentials, such as usernames, access tokens, or passwords.",
+            "Library and playback data, such as tracks, albums, artists, playlists, listening history, favorites, and queues.",
+            "On-device data, such as app settings, caches, downloads, library indexes, and error states.",
+            "Feedback you choose to send, such as your email address, issue description, and attachments.",
+          ],
         ],
         [
-          "This website",
-          "This website currently has no account system and does not collect your library, listening history, or music files. It only stores your language preference locally in the browser.",
+          "3. How information is used",
+          "The information above is used only to provide features you request, including connecting to music sources, displaying and searching your library, playing media, saving preferences, providing offline content, troubleshooting, responding to feedback, and maintaining product security. Aduoer does not use this information for advertising profiles or cross-app tracking.",
         ],
         [
-          "Contact",
-          "For privacy questions, open an issue through the Aduoer Music organization on GitHub.",
+          "4. Local storage and credentials",
+          [
+            "App settings, library indexes, listening history, favorites, caches, and downloads are generally stored on your device. Music-source accounts, tokens, and passwords are stored using the system Keychain provided by Apple.",
+            "Aduoer does not operate a user-account system that synchronizes this local information. Device backups and Keychain synchronization are controlled by your Apple system settings and the relevant Apple services.",
+          ],
+        ],
+        [
+          "5. Network access and third-party services",
+          [
+            "When you play, search, favorite, download, match metadata, or use singing-related features, Aduoer sends the information necessary to complete the request to services you select or configure. Their operators may receive account identifiers, request content, IP addresses, and device network information.",
+            "When using SMB, WebDAV, or another local-network music source, Aduoer accesses only the server and shared directories you specify. Use HTTPS or another secure connection whenever the service supports it.",
+            "Aduoer may use Apple-provided features such as Siri, Shortcuts, Spotlight, media controls, and system backup. Apple processes information associated with those system features under its own privacy policy.",
+          ],
+        ],
+        [
+          "6. Sharing, sale, and tracking",
+          [
+            "Aduoer does not sell or rent your personal information, include advertising networks, or engage in cross-app or cross-site tracking.",
+            "Information may be sent to the relevant service provider only when you connect that service, when necessary to provide a feature you request, to comply with law, or to protect users and product security. Service providers processing information on our behalf are required to provide protections equivalent to those described in this policy.",
+          ],
+        ],
+        [
+          "7. Official website",
+          [
+            "The official Aduoer website has no user-account system, does not access your music library, listening history, or music files, and does not use advertising cookies, cross-site tracking cookies, or third-party behavioral analytics cookies.",
+            "The website stores your language choice locally in your browser. Hosting and network providers may process IP addresses, browser information, and basic access logs to deliver pages, protect security, and diagnose failures under their own privacy policies.",
+          ],
+        ],
+        [
+          "8. Retention and deletion",
+          [
+            "On-device information remains until you clear it in the app, remove the relevant music source, or uninstall Aduoer. You can remove sources and clear caches in Settings. Downloads remain after a source is removed until you delete them.",
+            "Uninstalling Aduoer through the system removes local data in the app container. Removal of Keychain items and system backups is governed by Apple platform behavior. Information sent to third-party music sources should be deleted through the controls offered by those services.",
+            "Feedback you send us is retained only as long as reasonably necessary to resolve the request and meet security, audit, or legal obligations, after which it is deleted or anonymized.",
+          ],
+        ],
+        [
+          "9. Security",
+          "We use technical and organizational safeguards appropriate to the nature of the information, including system Keychain storage for credentials, purpose limitations, and data minimization. No storage or transmission method is completely secure, and you should also protect your device, accounts, and music-source credentials.",
+        ],
+        [
+          "10. Your choices and rights",
+          [
+            "You can choose not to add a music source, remove sources, clear caches and downloads, adjust system permissions, or uninstall the app. You can use the connected service's controls to access, correct, or delete information held by that service.",
+            "Depending on where you live, you may have rights to access, correct, delete, restrict processing, withdraw consent, or lodge a complaint. For feedback information held directly by us, submit a request using the email below. We may need to verify the requester's identity.",
+          ],
+        ],
+        [
+          "11. Children's privacy",
+          "Aduoer is a general-audience music player and is not designed specifically for children. We do not knowingly collect children's personal information as defined by applicable law. A parent or guardian who believes a child submitted personal information to us may contact us to request appropriate action.",
+        ],
+        [
+          "12. Changes to this policy",
+          "We may update this policy as product features, technology, service providers, or legal requirements change. Material changes will be communicated through this page, an in-app notice, or another appropriate method, and the date at the top will be updated.",
+        ],
+        [
+          "13. Contact",
+          [
+            "For questions about this policy, Aduoer's privacy practices, or an information request, contact us at:",
+            "feedback@waizx.com",
+          ],
         ],
       ],
     },
@@ -147,7 +303,7 @@ const pages = {
       ],
     },
   },
-} as const;
+};
 
 const page = pages[kind];
 ---
@@ -173,27 +329,79 @@ const page = pages[kind];
     <h1 data-title="en" hidden>{page.en.title}</h1>
     <p data-intro="zh">{page.zh.intro}</p>
     <p data-intro="en" hidden>{page.en.intro}</p>
+    {
+      page.zh.updated && (
+        <p class="legal-page__updated" data-updated="zh">
+          {page.zh.updated}
+        </p>
+      )
+    }
+    {
+      page.en.updated && (
+        <p class="legal-page__updated" data-updated="en" hidden>
+          {page.en.updated}
+        </p>
+      )
+    }
   </div>
 
   <article class="legal-copy" data-language-copy="zh">
     {
-      page.zh.sections.map(([title, text]) => (
-        <section>
-          <h2>{title}</h2>
-          <p>{text}</p>
-        </section>
-      ))
+      page.zh.sections.map(([title, body, items]) => {
+        const paragraphs = typeof body === "string" ? [body] : body;
+
+        return (
+          <section>
+            <h2>{title}</h2>
+            {paragraphs.map((paragraph) => (
+              <p>
+                {paragraph === "feedback@waizx.com" ? (
+                  <a href={`mailto:${paragraph}`}>{paragraph}</a>
+                ) : (
+                  paragraph
+                )}
+              </p>
+            ))}
+            {items && (
+              <ul>
+                {items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        );
+      })
     }
   </article>
 
   <article class="legal-copy" data-language-copy="en" hidden>
     {
-      page.en.sections.map(([title, text]) => (
-        <section>
-          <h2>{title}</h2>
-          <p>{text}</p>
-        </section>
-      ))
+      page.en.sections.map(([title, body, items]) => {
+        const paragraphs = typeof body === "string" ? [body] : body;
+
+        return (
+          <section>
+            <h2>{title}</h2>
+            {paragraphs.map((paragraph) => (
+              <p>
+                {paragraph === "feedback@waizx.com" ? (
+                  <a href={`mailto:${paragraph}`}>{paragraph}</a>
+                ) : (
+                  paragraph
+                )}
+              </p>
+            ))}
+            {items && (
+              <ul>
+                {items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        );
+      })
     }
   </article>
 </main>
@@ -218,6 +426,9 @@ const page = pages[kind];
     });
     document.querySelectorAll("[data-intro]").forEach((element) => {
       element.hidden = element.dataset.intro !== language;
+    });
+    document.querySelectorAll("[data-updated]").forEach((element) => {
+      element.hidden = element.dataset.updated !== language;
     });
     document.querySelectorAll("[data-language-button]").forEach((element) => {
       element.setAttribute(
