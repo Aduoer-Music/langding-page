@@ -1,11 +1,14 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
-const isProduction = process.env.NODE_ENV === "production";
+const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const site = productionDomain
+  ? `https://${productionDomain}`
+  : "http://localhost:4321";
 
 export default defineConfig({
-  site: "https://aduoer-music.github.io",
-  base: isProduction ? "/langding-page" : "/",
+  site,
+  base: "/",
   vite: {
     css: {
       preprocessorOptions: {
