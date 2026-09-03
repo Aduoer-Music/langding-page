@@ -26,7 +26,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "隐私政策",
       intro:
         "本政策说明 Aduoer Music（以下简称“Aduoer”）及其官方网站如何处理与你有关的信息，以及你可以如何管理这些信息。",
-      updated: "生效及更新日期：2026 年 8 月 11 日",
+      updated: "生效及更新日期：2026 年 8 月 17 日",
       sections: [
         [
           "一、适用范围",
@@ -68,7 +68,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
           [
             "当你播放、搜索、收藏、下载、匹配元数据或使用演唱相关功能时，Aduoer 会向你选择或配置的服务发送完成请求所必需的数据。服务运营方可能接收到账号标识、请求内容、IP 地址和设备网络信息。",
             "当你使用 SMB、WebDAV 或其他局域网音乐源时，Aduoer 仅访问你指定的服务器和共享目录。仅你明确添加或配置的音乐源和兼容服务端点可以使用 HTTP；Aduoer 的所有第一方和预配置网络连接均使用 HTTPS。HTTP 流量可能被同一网络中的第三方读取或修改，服务支持时应优先使用 HTTPS。",
-            "启用元数据匹配或演唱功能时，Aduoer 默认连接 https://aduoer-api.xiaosm.cn，你也可以改用自己配置的兼容服务。元数据匹配可能发送文件名、曲名、歌手、专辑、时长、文件大小、编码格式、内嵌标签或歌词信息以及音频指纹。官方服务可能向 QQ 音乐、网易云音乐、MusicBrainz、AcoustID 或部署时配置的其他元数据提供方发送搜索词、音频指纹和匹配所需信息。",
+            "当你使用 App 内第三方接口服务时，Aduoer 可能直接连接相应服务。Aduoer 向此类服务发送的数据仅限歌曲相关元数据信息；各服务运营方会按照其自身的隐私政策和服务条款独立处理数据。",
+            "启用元数据匹配或演唱功能时，Aduoer 默认连接 https://aduoer-api.xiaosm.cn，你也可以改用自己配置的兼容服务。元数据匹配可能发送文件名、曲名、歌手、专辑、时长、文件大小、编码格式、内嵌标签或歌词信息以及音频指纹。官方服务可能向其使用的元数据提供方发送搜索词、音频指纹和匹配所需信息。",
             "演唱功能可能发送曲目标识、曲名、歌手、专辑、时长和远程音频地址。官方服务会下载该音频并交给音轨分离服务处理；人声与伴奏结果可能保存在对象存储中，以便返回结果和避免重复处理。",
             "Aduoer 官方服务不使用 Aduoer 用户账户、广告标识符或跨 App 标识符关联这些请求。应用日志不会主动记录文件名、曲名、歌手或专辑；基础设施提供方仍可能为安全和故障排查处理 IP 地址、请求时间和基础访问日志。",
             "Aduoer 可能调用 Apple 提供的 Siri、快捷指令、Spotlight、媒体控制、iCloud 和系统备份能力。相关系统功能由 Apple 按其隐私政策处理。",
@@ -131,7 +132,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "Privacy Policy",
       intro:
         'This policy explains how Aduoer Music ("Aduoer") and its official website handle information related to you and how you can manage that information.',
-      updated: "Effective and last updated: August 11, 2026",
+      updated: "Effective and last updated: August 17, 2026",
       sections: [
         [
           "1. Scope",
@@ -173,7 +174,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
           [
             "When you play, search, favorite, download, match metadata, or use singing-related features, Aduoer sends the information necessary to complete the request to services you select or configure. Their operators may receive account identifiers, request content, IP addresses, and device network information.",
             "When using SMB, WebDAV, or another local-network music source, Aduoer accesses only the server and shared directories you specify. Only music sources and compatible-service endpoints you explicitly add or configure may use HTTP; every first-party and preconfigured Aduoer network connection uses HTTPS. HTTP traffic may be readable or modifiable by other parties on the same network; prefer HTTPS whenever the service supports it.",
-            "When metadata matching or singing is enabled, Aduoer connects by default to https://aduoer-api.xiaosm.cn. You can configure a compatible service of your own instead. Metadata matching may send a file name, track title, artists, album, duration, file size, codec and format, embedded tags or lyric information, and an audio fingerprint. The official service may send search terms, an audio fingerprint, and information needed for matching to QQ Music, NetEase Cloud Music, MusicBrainz, AcoustID, or other metadata providers configured for the deployment.",
+            "When you use a third-party interface service available in the app, Aduoer may connect directly to that service. Aduoer sends these services only song-related metadata. Each service operator processes data independently under its own privacy policy and terms of service.",
+            "When metadata matching or singing is enabled, Aduoer connects by default to https://aduoer-api.xiaosm.cn. You can configure a compatible service of your own instead. Metadata matching may send a file name, track title, artists, album, duration, file size, codec and format, embedded tags or lyric information, and an audio fingerprint. The official service may send search terms, an audio fingerprint, and information needed for matching to the metadata providers it uses.",
             "The singing feature may send a track identifier, title, artists, album, duration, and remote audio URL. The official service downloads that audio and sends it to an audio-separation service. Vocal and instrumental results may be stored in object storage so the result can be returned and duplicate processing can be avoided.",
             "Official Aduoer services do not use an Aduoer user account, advertising identifier, or cross-app identifier to associate these requests. Application logs do not intentionally record file names, track titles, artists, or albums. Infrastructure providers may still process IP addresses, request times, and basic access logs for security and troubleshooting.",
             "Aduoer may use Apple-provided features such as Siri, Shortcuts, Spotlight, media controls, iCloud, and system backup. Apple processes information associated with those system features under its own privacy policy.",
