@@ -281,13 +281,8 @@ img {
   opacity: 1;
 }
 
-.store-button:disabled {
-  cursor: not-allowed;
-}
-
-.store-button svg {
-  width: 19px;
-  height: 19px;
+.store-button:hover {
+  background: #2d2d30;
 }
 
 .text-link {

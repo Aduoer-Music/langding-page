@@ -3,7 +3,6 @@ import {
   ArrowUpRightIcon,
   Bars3Icon,
   CheckIcon,
-  ClockIcon,
   DevicePhoneMobileIcon,
   GlobeAltIcon,
   MicrophoneIcon,
@@ -14,6 +13,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import "devices.css/dist/devices.css";
+import {
+  APP_STORE_URL,
+  getLocalizedAppStoreUrl,
+} from "../../lib/appStore";
 
 type Language = "zh" | "en";
 
@@ -34,7 +37,7 @@ const content = {
       title: "听见你的每一种声音",
       subtitle:
         "Aduoer 把在线服务、自建媒体库与本地文件带进同一个原生播放器。发现、收藏、下载、听歌词，从此不必在多个 App 之间来回切换。",
-      pending: "App Store 上线准备中",
+      appStore: "App Store",
       openSource: "在 GitHub 了解项目",
       note: "专为 Apple 平台打造 · 暂无 Android 版本",
       screenLabel: "Aduoer Music iOS 产品界面",
@@ -102,7 +105,7 @@ const content = {
       title: "Hear every side of your music",
       subtitle:
         "Aduoer brings online services, self-hosted libraries, and local files into one native player. Discover, save, download, and follow the lyrics without jumping between apps.",
-      pending: "Preparing for the App Store",
+      appStore: "App Store",
       openSource: "Explore the project on GitHub",
       note: "Built for Apple platforms · No Android version",
       screenLabel: "Aduoer Music for iOS",
@@ -206,11 +209,21 @@ function LanguageSwitch({
 }
 
 function AppStoreButton({ label }: { label: string }) {
+  const [url, setUrl] = useState(APP_STORE_URL);
+
+  useEffect(() => {
+    setUrl(getLocalizedAppStoreUrl());
+  }, []);
+
   return (
-    <button className="store-button" type="button" disabled title={label}>
-      <ClockIcon aria-hidden="true" />
+    <a
+      className="store-button"
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+    >
       <span>{label}</span>
-    </button>
+    </a>
   );
 }
 
@@ -354,7 +367,7 @@ function Home() {
           <h1>{t.hero.title}</h1>
           <p className="hero__subtitle">{t.hero.subtitle}</p>
           <div className="hero__actions">
-            <AppStoreButton label={t.hero.pending} />
+            <AppStoreButton label={t.hero.appStore} />
             <a
               className="text-link"
               href={GITHUB_URL}
