@@ -21,6 +21,7 @@ import {
 type Language = "zh" | "en";
 
 const GITHUB_URL = "https://github.com/Aduoer-Music";
+const DOCUMENTATION_URL = "https://docs.aduoer.waizx.com";
 const BASE_URL = import.meta.env.BASE_URL;
 const normalizedBaseUrl = `${BASE_URL.replace(/\/+$/, "")}/`;
 const assetUrl = (path: string) =>
@@ -99,6 +100,7 @@ const content = {
   en: {
     nav: {
       product: "Product",
+      documentation: "Documentation",
       github: "GitHub",
     },
     hero: {
@@ -298,6 +300,13 @@ function Home() {
 
           <div className="desktop-nav">
             <a href="#product">{t.nav.product}</a>
+            <a
+              href={DOCUMENTATION_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.nav.documentation}
+            </a>
           </div>
 
           <div className="navbar-actions">
@@ -331,6 +340,14 @@ function Home() {
           <div className="mobile-nav">
             <a href="#product" onClick={closeMobile}>
               {t.nav.product}
+            </a>
+            <a
+              href={DOCUMENTATION_URL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMobile}
+            >
+              {t.nav.documentation}
             </a>
           </div>
         )}
@@ -487,6 +504,9 @@ function Home() {
           <div className="footer__column">
             <strong>{t.footer.product}</strong>
             <a href="#product">{t.nav.product}</a>
+            <a href={DOCUMENTATION_URL} target="_blank" rel="noreferrer">
+              Documentation
+            </a>
             <a href={GITHUB_URL} target="_blank" rel="noreferrer">
               GitHub
             </a>
