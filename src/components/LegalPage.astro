@@ -26,7 +26,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "隐私政策",
       intro:
         "本政策说明 Aduoer Music（以下简称“Aduoer”）及其官方网站如何处理与你有关的信息，以及你可以如何管理这些信息。",
-      updated: "生效及更新日期：2026 年 8 月 17 日",
+      updated: "生效及更新日期：2026 年 10 月 9 日",
       sections: [
         [
           "一、适用范围",
@@ -58,8 +58,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "四、本地存储与凭据",
           [
-            "曲库索引、播放记录、队列、搜索历史、缓存和下载通常保存在你的设备上。音乐源账号、令牌、密码和自定义认证信息通过 Apple 提供的系统钥匙串保存。本地文件夹通过系统文件选择器获得只读授权；Aduoer 不会修改你选择的音频文件。",
-            "你可以选择使用 Apple iCloud 和 CloudKit 同步音乐源的非敏感配置、由 Aduoer 管理的收藏与歌单，以及允许同步的服务地址设置。密码、令牌、本地文件夹书签、绝对路径、下载、缓存、播放进度、队列、播放历史和搜索历史不会通过 Aduoer CloudKit 业务容器同步。",
+            "曲库索引、播放记录、队列、搜索历史、缓存和下载通常保存在你的设备上。音乐源账号、令牌、密码和自定义认证信息通过 Apple 提供的系统钥匙串保存。本地文件夹通过系统文件选择器获得访问授权；支持的文件源可在你明确编辑元数据或歌词时写回原文件。Google Drive 使用只读授权，不会修改或删除网盘原文件。",
+            "你可以选择使用 Apple iCloud 和私有 CloudKit 同步音乐源配置、由 Aduoer 管理的收藏与歌单，以及允许同步的服务地址设置。为让同一 Apple 账户的其他设备连接已添加的音乐源，支持同步的源凭据（包括云盘访问令牌和刷新令牌）保存在私有 CloudKit 的加密字段中；运行时仍从设备钥匙串读取。下载、音频缓存、播放进度、队列、播放历史和搜索历史不会通过 Aduoer CloudKit 业务容器同步；本地文件夹书签和设备绝对路径也不会同步。",
             "Aduoer 不运营用于 iCloud 同步的独立用户账户系统。iCloud 同步由 Apple 按照你的系统设置和 Apple 的隐私政策处理，你可以在 Aduoer 设置中关闭。",
           ],
         ],
@@ -69,10 +69,19 @@ const pages: Record<Kind, LegalPageDefinition> = {
             "当你播放、搜索、收藏、下载、匹配元数据或使用演唱相关功能时，Aduoer 会向你选择或配置的服务发送完成请求所必需的数据。服务运营方可能接收到账号标识、请求内容、IP 地址和设备网络信息。",
             "当你使用 SMB、WebDAV 或其他局域网音乐源时，Aduoer 仅访问你指定的服务器和共享目录。仅你明确添加或配置的音乐源和兼容服务端点可以使用 HTTP；Aduoer 的所有第一方和预配置网络连接均使用 HTTPS。HTTP 流量可能被同一网络中的第三方读取或修改，服务支持时应优先使用 HTTPS。",
             "当你使用 App 内第三方接口服务时，Aduoer 可能直接连接相应服务。Aduoer 向此类服务发送的数据仅限歌曲相关元数据信息；各服务运营方会按照其自身的隐私政策和服务条款独立处理数据。",
-            "启用元数据匹配或演唱功能时，Aduoer 默认连接 https://aduoer-api.xiaosm.cn，你也可以改用自己配置的兼容服务。元数据匹配可能发送文件名、曲名、歌手、专辑、时长、文件大小、编码格式、内嵌标签或歌词信息以及音频指纹。官方服务可能向其使用的元数据提供方发送搜索词、音频指纹和匹配所需信息。",
+            "当连接官方 API 服务时，Aduoer 默认连接 https://aduoer-api.waizx.com。元数据匹配可能发送文件名、曲名、歌手、专辑、时长、文件大小、编码格式、内嵌标签或歌词信息以及音频指纹。",
             "演唱功能可能发送曲目标识、曲名、歌手、专辑、时长和远程音频地址。官方服务会下载该音频并交给音轨分离服务处理；人声与伴奏结果可能保存在对象存储中，以便返回结果和避免重复处理。",
             "Aduoer 官方服务不使用 Aduoer 用户账户、广告标识符或跨 App 标识符关联这些请求。应用日志不会主动记录文件名、曲名、歌手或专辑；基础设施提供方仍可能为安全和故障排查处理 IP 地址、请求时间和基础访问日志。",
             "Aduoer 可能调用 Apple 提供的 Siri、快捷指令、Spotlight、媒体控制、iCloud 和系统备份能力。相关系统功能由 Apple 按其隐私政策处理。",
+          ],
+        ],
+        [
+          "Google Drive 授权与数据使用",
+          [
+            "连接 Google Drive 后，Aduoer 可以读取和下载你网盘中的文件，但只扫描你选择的文件夹来建立曲库，用于播放和下载音乐，不会修改或删除网盘原文件。",
+            "歌曲信息、缓存和下载保存在你的设备上，文件由设备直接从 Google Drive 获取。Aduoer 官方服务会协助完成登录和保持连接，但不会在服务器数据库中保存你的授权信息。授权信息安全保存在设备上；开启 iCloud 同步后，也会加密同步到你同一 Apple 账户的其他设备。",
+            "使用歌曲信息匹配等联网功能时，所需信息会按前文说明发送给相应服务。我们不会出售你的 Google 数据，也不会将其用于广告或训练通用人工智能模型，并遵守 Google 的用户数据政策及有限使用要求：https://developers.google.com/terms/api-services-user-data-policy。",
+            "你可以在 Google 账户的“第三方连接”中取消授权：https://myaccount.google.com/connections。移除音乐源会清除保存的授权信息；已下载的音乐和缓存需另行清理，不会影响网盘原文件。",
           ],
         ],
         [
@@ -132,7 +141,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "Privacy Policy",
       intro:
         'This policy explains how Aduoer Music ("Aduoer") and its official website handle information related to you and how you can manage that information.',
-      updated: "Effective and last updated: August 17, 2026",
+      updated: "Effective and last updated: October 9, 2026",
       sections: [
         [
           "1. Scope",
@@ -164,8 +173,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "4. Local storage and credentials",
           [
-            "Library indexes, listening history, queues, search history, caches, and downloads are generally stored on your device. Music-source accounts, tokens, passwords, and custom authentication information are stored using the system Keychain provided by Apple. Local folders are granted read-only access through the system file picker; Aduoer does not modify the audio files you select.",
-            "You may choose to use Apple iCloud and CloudKit to sync non-sensitive music-source configurations, favorites and playlists managed by Aduoer, and allow-listed service-address settings. Passwords, tokens, local-folder bookmarks, absolute paths, downloads, caches, playback progress, queues, listening history, and search history are not synced through Aduoer's CloudKit business container.",
+            "Library indexes, listening history, queues, search history, caches, and downloads are generally stored on your device. Music-source accounts, tokens, passwords, and custom authentication information are stored using the system Keychain provided by Apple. Local folders are authorized through the system file picker. Supported file sources can write changes to original files when you explicitly edit metadata or lyrics. Google Drive uses read-only authorization and does not modify or delete original Drive files.",
+            "You may choose to use Apple iCloud and private CloudKit to sync music-source configurations, favorites and playlists managed by Aduoer, and allow-listed service-address settings. To let other devices using the same Apple account connect to configured sources, supported source credentials, including cloud-drive access and refresh tokens, are stored in encrypted fields in private CloudKit. At runtime, credentials are read from the device Keychain. Downloads, audio caches, playback progress, queues, listening history, and search history are not synced through Aduoer's CloudKit business container. Local-folder bookmarks and device absolute paths are also excluded.",
             "Aduoer does not operate a separate user-account system for iCloud sync. Apple processes iCloud sync according to your system settings and Apple's privacy policy, and you can turn it off in Aduoer Settings.",
           ],
         ],
@@ -175,10 +184,19 @@ const pages: Record<Kind, LegalPageDefinition> = {
             "When you play, search, favorite, download, match metadata, or use singing-related features, Aduoer sends the information necessary to complete the request to services you select or configure. Their operators may receive account identifiers, request content, IP addresses, and device network information.",
             "When using SMB, WebDAV, or another local-network music source, Aduoer accesses only the server and shared directories you specify. Only music sources and compatible-service endpoints you explicitly add or configure may use HTTP; every first-party and preconfigured Aduoer network connection uses HTTPS. HTTP traffic may be readable or modifiable by other parties on the same network; prefer HTTPS whenever the service supports it.",
             "When you use a third-party interface service available in the app, Aduoer may connect directly to that service. Aduoer sends these services only song-related metadata. Each service operator processes data independently under its own privacy policy and terms of service.",
-            "When metadata matching or singing is enabled, Aduoer connects by default to https://aduoer-api.xiaosm.cn. You can configure a compatible service of your own instead. Metadata matching may send a file name, track title, artists, album, duration, file size, codec and format, embedded tags or lyric information, and an audio fingerprint. The official service may send search terms, an audio fingerprint, and information needed for matching to the metadata providers it uses.",
+            "When connecting to official API services, Aduoer connects by default to https://aduoer-api.waizx.com. Metadata matching may send a file name, track title, artists, album, duration, file size, codec and format, embedded tags or lyric information, and an audio fingerprint.",
             "The singing feature may send a track identifier, title, artists, album, duration, and remote audio URL. The official service downloads that audio and sends it to an audio-separation service. Vocal and instrumental results may be stored in object storage so the result can be returned and duplicate processing can be avoided.",
             "Official Aduoer services do not use an Aduoer user account, advertising identifier, or cross-app identifier to associate these requests. Application logs do not intentionally record file names, track titles, artists, or albums. Infrastructure providers may still process IP addresses, request times, and basic access logs for security and troubleshooting.",
             "Aduoer may use Apple-provided features such as Siri, Shortcuts, Spotlight, media controls, iCloud, and system backup. Apple processes information associated with those system features under its own privacy policy.",
+          ],
+        ],
+        [
+          "Google Drive authorization and data use",
+          [
+            "Connecting Google Drive lets Aduoer read and download files in your Drive. Aduoer scans only the folder you choose to build your music library for playback and downloads. It does not change or delete your original Drive files.",
+            "Song information, caches, and downloads are stored on your device. Your device retrieves files directly from Google Drive. Aduoer’s official service helps you sign in and stay connected, but does not save your authorization information in its server database. This information is stored securely on your device. If you enable iCloud sync, it is also synced in encrypted form to your other devices using the same Apple account.",
+            "When you use song-information matching or other online features, the information needed is sent to the relevant services as described above. We do not sell your Google data or use it for advertising or training general-purpose AI models. We follow the Google API Services User Data Policy, including its Limited Use requirements: https://developers.google.com/terms/api-services-user-data-policy.",
+            "You can revoke access in your Google account’s third-party connections: https://myaccount.google.com/connections. Removing a music source clears its saved authorization information. Downloads and caches must be cleared separately; your original Drive files are unaffected.",
           ],
         ],
         [
