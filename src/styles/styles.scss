@@ -796,6 +796,17 @@ img {
   line-height: 1.7;
 }
 
+.legal-page__dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.legal-page__dates .legal-page__updated {
+  margin: 0;
+}
+
 .legal-page__updated {
   display: inline-flex;
   padding: 8px 11px;

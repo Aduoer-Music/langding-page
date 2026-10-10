@@ -8,6 +8,7 @@ type LegalSection = readonly [
 type LegalContent = {
   title: string;
   intro: string;
+  created?: string;
   updated?: string;
   sections: readonly LegalSection[];
 };
@@ -26,7 +27,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "隐私政策",
       intro:
         "本政策说明 Aduoer Music（以下简称“Aduoer”）及其官方网站如何处理与你有关的信息，以及你可以如何管理这些信息。",
-      updated: "生效及更新日期：2026 年 10 月 9 日",
+      created: "发布日期：2026 年 09 月 01 日",
+      updated: "更新日期：2026 年 10 月 10 日",
       sections: [
         [
           "一、适用范围",
@@ -85,6 +87,15 @@ const pages: Record<Kind, LegalPageDefinition> = {
           ],
         ],
         [
+          "百度网盘授权与数据使用",
+          [
+            "你通过百度官方页面授权后，Aduoer 会读取目录列表、文件名及音频元数据等必要信息，用于浏览目录、整理曲库、播放和下载，不会修改或删除网盘原文件。",
+            "Aduoer 不读取或保存百度账号密码。官方 API 通过 HTTPS 协助换取和刷新令牌，处理必要授权数据、设备 UUID 和语言设置，但不将授权数据存入服务器数据库。凭据保存在系统钥匙串中，开启 iCloud 同步后会加密同步到同一 Apple 账户的设备；可选联网功能的数据处理见前文说明。",
+            "文件索引、元数据和凭据保留至你移除音乐源或清除相应数据；音频片段、封面和歌词等缓存保留至清理、容量管理淘汰或系统清理，完整下载保留至你主动删除。移除音乐源或撤销授权不会自动删除已有下载，也不会删除网盘原文件。",
+            "你可在百度网盘“我的 > 设置 > 隐私与个性化设置 > 权限管理”（iOS）或“授权管理”（Android）中解除 Aduoer 授权，或登录 https://passport.baidu.com 管理第三方授权，入口以百度当前界面为准。撤销后无法继续通过该授权访问网盘；移除 Aduoer 中的音乐源不等同于撤销百度授权，已有本地数据需另行清理。",
+          ],
+        ],
+        [
           "六、信息共享、出售和追踪",
           [
             "Aduoer 不出售或出租你的个人信息，不包含广告网络，也不进行跨 App 或跨网站追踪。",
@@ -102,8 +113,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "八、保存期限和删除",
           [
-            "设备端信息会保留到你在 App 中清除、删除对应音乐源或卸载 Aduoer。你可以在设置中移除音乐源并清理缓存；移除音乐源后，已经下载的文件会继续保留，直到你主动删除。",
-            "通过系统卸载 Aduoer 会删除 App 容器中的本地数据。钥匙串项目和系统备份的具体清理由 Apple 平台规则决定。发送给第三方音乐源的数据应按照该服务提供的方式删除。",
+            "曲库索引和相关设备端信息会保留到你在 App 中清除、删除对应音乐源或卸载 Aduoer。播放缓存还可能因缓存容量管理或系统清理而删除。你可以在设置中移除音乐源并清理缓存；移除音乐源或撤销网盘授权后，已经下载的文件会继续保留，直到你主动删除。",
+            "通过系统卸载 Aduoer 会删除 App 容器中的本地数据，但不会删除你授权访问的原始本地文件、导出文件或保存在 App 容器外的下载。钥匙串项目和系统备份的具体清理由 Apple 平台规则决定。发送给第三方音乐源的数据应按照该服务提供的方式删除。",
             "官方元数据服务可能把候选元数据和规范曲目信息保存为共享缓存；演唱服务可能保存任务状态和生成的分离音轨。它们会保留到缓存被替换、服务维护清理或有效删除请求被处理。安全和访问日志仅在排障、安全、审计或法律义务所需期间保存。",
             "官方服务没有 Aduoer 用户账户。申请删除官方服务中的请求数据时，请提供可用于定位数据的任务 ID、曲目信息和大致请求时间。我们只会要求完成请求所必需的信息，并可能验证请求人的身份或访问权限。",
             "你主动发送给我们的反馈会在处理问题及履行合理的安全、审计或法律义务所需期间内保存，之后删除或匿名化。",
@@ -141,7 +152,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "Privacy Policy",
       intro:
         'This policy explains how Aduoer Music ("Aduoer") and its official website handle information related to you and how you can manage that information.',
-      updated: "Effective and last updated: October 9, 2026",
+      created: "Published: September 1, 2026",
+      updated: "Last updated: October 10, 2026",
       sections: [
         [
           "1. Scope",
@@ -200,6 +212,15 @@ const pages: Record<Kind, LegalPageDefinition> = {
           ],
         ],
         [
+          "Baidu Netdisk authorization and data use",
+          [
+            "After you authorize access on Baidu's official page, Aduoer reads necessary information such as directory listings, file names, and audio metadata to browse folders, organize your music library, play music, and download files. It does not modify or delete your original Netdisk files.",
+            "Aduoer does not read or store your Baidu password. The official API assists with token exchange and refresh over HTTPS, processing necessary authorization data, a device UUID, and your language setting without storing authorization data in its server database. Credentials are stored in the system Keychain and, if you enable iCloud sync, synced in encrypted form to devices using the same Apple account. Optional online features process data as described above.",
+            "File indexes, metadata, and credentials remain until you remove the music source or clear the relevant data. Cached audio segments, artwork, and lyrics remain until cleared, evicted by capacity management, or removed by the system. Complete downloads remain until you delete them. Removing a source or revoking access does not automatically delete existing downloads and does not delete your original Netdisk files.",
+            "You can revoke Aduoer's access in Baidu Netdisk under Me > Settings > Privacy and Personalization Settings > Permission Management (iOS) or Authorization Management (Android), or manage third-party authorizations at https://passport.baidu.com. Follow Baidu's current interface. Revocation stops further Netdisk access through that authorization. Removing a source in Aduoer does not revoke Baidu authorization; clear existing local data separately.",
+          ],
+        ],
+        [
           "6. Sharing, sale, and tracking",
           [
             "Aduoer does not sell or rent your personal information, include advertising networks, or engage in cross-app or cross-site tracking.",
@@ -217,8 +238,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "8. Retention and deletion",
           [
-            "On-device information remains until you clear it in the app, remove the relevant music source, or uninstall Aduoer. You can remove sources and clear caches in Settings. Downloads remain after a source is removed until you delete them.",
-            "Uninstalling Aduoer through the system removes local data in the app container. Removal of Keychain items and system backups is governed by Apple platform behavior. Information sent to third-party music sources should be deleted through the controls offered by those services.",
+            "Library indexes and related on-device information remain until you clear them in the app, remove the relevant music source, or uninstall Aduoer. Playback caches may also be removed by cache-capacity management or system cleanup. You can remove sources and clear caches in Settings. Downloads remain after a source is removed or cloud-drive access is revoked until you delete them.",
+            "Uninstalling Aduoer through the system removes local data in the app container, but does not delete original local files you authorized it to access, exported files, or downloads stored outside the app container. Removal of Keychain items and system backups is governed by Apple platform behavior. Information sent to third-party music sources should be deleted through the controls offered by those services.",
             "The official metadata service may retain candidate metadata and canonical track information as shared caches. The singing service may retain task state and generated separated audio. This information remains until the cache is replaced, service maintenance removes it, or a valid deletion request is processed. Security and access logs are retained only as long as needed for troubleshooting, security, audit, or legal obligations.",
             "Official services do not maintain Aduoer user accounts. To request deletion of request data held by an official service, include the task ID, track details, and approximate request time needed to locate it. We request only what is necessary and may verify the requester's identity or access authority.",
             "Feedback you send us is retained only as long as reasonably necessary to resolve the request and meet security, audit, or legal obligations, after which it is deleted or anonymized.",
@@ -257,7 +278,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
     zh: {
       title: "服务条款",
       intro: "使用 Aduoer 或官方网站即表示你同意遵守本条款。",
-      updated: "生效及更新日期：2026 年 8 月 11 日",
+      updated: "生效及更新日期：2026 年 10 月 10 日",
       sections: [
         [
           "一、服务与许可",
@@ -269,7 +290,16 @@ const pages: Record<Kind, LegalPageDefinition> = {
         ],
         [
           "三、第三方服务",
-          "Aduoer 可连接 Jellyfin、Navidrome、WebDAV、SMB 等服务，但不隶属于、也不代表这些第三方服务。",
+          "Aduoer 可连接百度网盘、Google Drive、OneDrive、Jellyfin、Navidrome、WebDAV、SMB 等服务，并可使用 Apple iCloud 同步。各第三方服务由相应运营方独立提供，Aduoer 不隶属于、也不代表这些服务；使用时还需遵守相应服务的条款、授权范围和使用限制。",
+        ],
+        [
+          "百度网盘与离线内容",
+          [
+            "百度网盘功能需由你在百度官方页面登录并授权，用于浏览你选择的目录、建立音乐库、播放和下载你有权使用的音频。Aduoer 会处理文件列表、文件名、文件 ID 与路径、文件大小与版本、音频元数据、授权令牌，以及设备上的音频、封面和歌词缓存；具体用途、保护措施和保存期限见隐私政策。",
+            "你需要确保有权下载、缓存和编辑相应内容。只有你明确选择“保存到原始文件”且获得百度相应写入权限时，Aduoer 才会上传编辑后的音频并覆盖对应文件。网盘权限、速度、配额和可用性由百度的服务规则决定。",
+            "你可在百度网盘“我的 > 设置 > 隐私与个性化设置 > 权限管理”（iOS）或“授权管理”（Android）中找到 Aduoer 并解除授权，也可通过 https://passport.baidu.com 管理第三方授权；部分版本使用“账号管理 > 授权管理”入口。撤销后无法继续通过该授权访问网盘。在 Aduoer 中移除音乐源会清除该源保存的凭据和索引，但不代替百度侧撤销授权；下载和缓存需要另行清理。下载保留到你主动删除，播放缓存还可能因容量管理或系统清理而删除。上述操作不会删除网盘原文件。",
+            "本地文件和下载缓存受操作系统沙盒或保存目录的文件访问权限保护，授权凭据由系统钥匙串保存。Aduoer 不会因浏览、播放或下载而自动上传完整本地文件或下载缓存至官方服务器，不会擅自向其他用户或无关第三方共享、出售或出租这些内容。你主动使用联网辅助功能、文件写回、iCloud 同步或分享时，必要数据按隐私政策及对应功能说明处理。",
+          ],
         ],
         [
           "四、Aduoer 官方服务",
@@ -302,7 +332,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "Terms of Use",
       intro:
         "By using Aduoer or the official website, you agree to these terms.",
-      updated: "Effective and last updated: August 11, 2026",
+      updated: "Effective and last updated: October 10, 2026",
       sections: [
         [
           "1. Service and license",
@@ -314,7 +344,16 @@ const pages: Record<Kind, LegalPageDefinition> = {
         ],
         [
           "3. Third-party services",
-          "Aduoer can connect to services such as Jellyfin, Navidrome, WebDAV, and SMB, but is not affiliated with or acting on behalf of those services.",
+          "Aduoer can connect to Baidu Netdisk, Google Drive, OneDrive, Jellyfin, Navidrome, WebDAV, SMB, and other services, and can use Apple iCloud for sync. Each third-party service is operated independently by its provider. Aduoer is not affiliated with or acting on behalf of those services. Their terms, authorization scopes, and usage limits also apply when you use them.",
+        ],
+        [
+          "Baidu Netdisk and offline content",
+          [
+            "Baidu Netdisk features require you to sign in and authorize access on Baidu's official page, allowing you to browse selected folders, build a music library, and play and download audio you are entitled to use. Aduoer processes file listings, names, file IDs and paths, sizes and versions, audio metadata, authorization tokens, and on-device audio, artwork, and lyrics caches. Purposes, safeguards, and retention are described in the Privacy Policy.",
+            "You are responsible for having the right to download, cache, and edit the content. Only when you explicitly choose Save to Original File and Baidu grants the required write permission does Aduoer upload edited audio to replace the corresponding file. Netdisk permissions, speed, quotas, and availability depend on Baidu's service rules.",
+            "To revoke access, find Aduoer in Baidu Netdisk under Me > Settings > Privacy and Personalization Settings > Permission Management (iOS) or Authorization Management (Android), or manage third-party authorizations at https://passport.baidu.com. Some versions use Account Management > Authorization Management. Revocation stops further Netdisk access through that authorization. Removing a source in Aduoer clears its saved credentials and indexes but does not revoke authorization on Baidu's side; clear downloads and caches separately. Downloads remain until you delete them; playback caches may also be removed by capacity management or the system. These actions do not delete original Netdisk files.",
+            "Local files and downloaded caches are protected by the operating system's sandbox or the storage folder's file-access permissions, and authorization credentials are stored in the system Keychain. Browsing, playback, and downloading do not automatically upload complete local files or downloaded caches to official Aduoer servers. We do not share these contents with other users or unrelated third parties without your authorization, or sell or rent them. When you choose online supporting features, file writeback, iCloud sync, or sharing, necessary data is processed as described in the Privacy Policy and the relevant feature.",
+          ],
         ],
         [
           "4. Official Aduoer services",
@@ -469,17 +508,32 @@ const page = pages[kind];
     <p data-intro="zh">{page.zh.intro}</p>
     <p data-intro="en" hidden>{page.en.intro}</p>
     {
-      page.zh.updated && (
-        <p class="legal-page__updated" data-updated="zh">
-          {page.zh.updated}
-        </p>
-      )
-    }
-    {
-      page.en.updated && (
-        <p class="legal-page__updated" data-updated="en" hidden>
-          {page.en.updated}
-        </p>
+      (page.zh.created ||
+        page.en.created ||
+        page.zh.updated ||
+        page.en.updated) && (
+        <div class="legal-page__dates">
+          {page.zh.created && (
+            <p class="legal-page__updated" data-created="zh">
+              {page.zh.created}
+            </p>
+          )}
+          {page.en.created && (
+            <p class="legal-page__updated" data-created="en" hidden>
+              {page.en.created}
+            </p>
+          )}
+          {page.zh.updated && (
+            <p class="legal-page__updated" data-updated="zh">
+              {page.zh.updated}
+            </p>
+          )}
+          {page.en.updated && (
+            <p class="legal-page__updated" data-updated="en" hidden>
+              {page.en.updated}
+            </p>
+          )}
+        </div>
       )
     }
   </div>
@@ -546,16 +600,18 @@ const page = pages[kind];
 </main>
 
 <script is:inline>
-  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  const requestedLanguage = new URLSearchParams(window.location.search).get(
+    "lang",
+  );
   const savedLanguage = localStorage.getItem("aduoer-language");
   let language =
     requestedLanguage === "zh" || requestedLanguage === "en"
       ? requestedLanguage
       : savedLanguage === "zh" || savedLanguage === "en"
-      ? savedLanguage
-      : navigator.language.toLowerCase().startsWith("zh")
-        ? "zh"
-        : "en";
+        ? savedLanguage
+        : navigator.language.toLowerCase().startsWith("zh")
+          ? "zh"
+          : "en";
 
   function applyLanguage(nextLanguage) {
     language = nextLanguage;
@@ -571,6 +627,9 @@ const page = pages[kind];
     });
     document.querySelectorAll("[data-updated]").forEach((element) => {
       element.hidden = element.dataset.updated !== language;
+    });
+    document.querySelectorAll("[data-created]").forEach((element) => {
+      element.hidden = element.dataset.created !== language;
     });
     document.querySelectorAll("[data-language-button]").forEach((element) => {
       element.setAttribute(
