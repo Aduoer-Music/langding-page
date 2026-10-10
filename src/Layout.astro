@@ -15,6 +15,11 @@ const baseUrl = import.meta.env.BASE_URL;
 const normalizedBaseUrl = `${baseUrl.replace(/\/+$/, "")}/`;
 const assetUrl = (path: string) =>
   `${normalizedBaseUrl}${path.replace(/^\/+/, "")}`;
+const canonicalUrl = new URL(
+  Astro.url.pathname.replace(/\/+$/, "") || "/",
+  Astro.site,
+);
+const imageUrl = new URL(assetUrl("og.png"), Astro.site);
 ---
 
 <!doctype html>
@@ -29,23 +34,19 @@ const assetUrl = (path: string) =>
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href={assetUrl("sitemap-index.xml")} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content={new URL(assetUrl("og.png"), Astro.url)}
-    />
+    <meta property="og:image" content={imageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={new URL(assetUrl("og.png"), Astro.url)}
-    />
+    <meta name="twitter:image" content={imageUrl} />
   </head>
   <body>
     <slot />
