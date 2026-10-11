@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aduoer.waizx.com/sitemap-index.xml
+Sitemap: https://aduoer.app/sitemap-index.xml

@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://aduoer.waizx.com",
+  site: "https://aduoer.app",
   base: "/",
   trailingSlash: "never",
   vite: {

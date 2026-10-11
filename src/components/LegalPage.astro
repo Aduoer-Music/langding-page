@@ -143,7 +143,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           "十三、联系我们",
           [
             "隐私问题、数据权利请求或官方服务数据删除请求：",
-            "feedback@waizx.com",
+            "feedback@aduoer.app",
           ],
         ],
       ],
@@ -268,7 +268,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           "13. Contact",
           [
             "For privacy questions, data-rights requests, or deletion requests involving an official service:",
-            "feedback@waizx.com",
+            "feedback@aduoer.app",
           ],
         ],
       ],
@@ -325,7 +325,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           "九、适用法律与变更",
           "本条款适用运营者所在地法律，但不影响你所在地不可放弃的消费者保护。我们可能更新本条款；重要变更会更新页面日期并通过适当方式说明。",
         ],
-        ["十、联系我们", ["条款或支持问题：", "feedback@waizx.com"]],
+        ["十、联系我们", ["条款或支持问题：", "feedback@aduoer.app"]],
       ],
     },
     en: {
@@ -381,7 +381,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
         ],
         [
           "10. Contact",
-          ["For terms or support questions:", "feedback@waizx.com"],
+          ["For terms or support questions:", "feedback@aduoer.app"],
         ],
       ],
     },
@@ -447,7 +447,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           "联系支持",
           [
             "请发送邮件至：",
-            "feedback@waizx.com",
+            "feedback@aduoer.app",
             "建议附上设备型号、系统版本、Aduoer 版本、音乐源类型、复现步骤和错误截图。请勿发送密码、访问令牌、Cookie、完整自定义请求头或未经处理的私人日志。",
           ],
         ],
@@ -470,7 +470,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           "Contact support",
           [
             "Email:",
-            "feedback@waizx.com",
+            "feedback@aduoer.app",
             "Include your device model, OS version, Aduoer version, source type, reproduction steps, and an error screenshot when possible. Do not send passwords, access tokens, cookies, complete custom request headers, or unredacted private logs.",
           ],
         ],
@@ -548,7 +548,7 @@ const page = pages[kind];
             <h2>{title}</h2>
             {paragraphs.map((paragraph) => (
               <p>
-                {paragraph === "feedback@waizx.com" ? (
+                {paragraph === "feedback@aduoer.app" ? (
                   <a href={`mailto:${paragraph}`}>{paragraph}</a>
                 ) : (
                   paragraph
@@ -578,7 +578,7 @@ const page = pages[kind];
             <h2>{title}</h2>
             {paragraphs.map((paragraph) => (
               <p>
-                {paragraph === "feedback@waizx.com" ? (
+                {paragraph === "feedback@aduoer.app" ? (
                   <a href={`mailto:${paragraph}`}>{paragraph}</a>
                 ) : (
                   paragraph

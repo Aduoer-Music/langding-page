@@ -21,7 +21,7 @@ import {
 type Language = "zh" | "en";
 
 const GITHUB_URL = "https://github.com/Aduoer-Music";
-const DOCUMENTATION_URL = "https://docs.aduoer.waizx.com";
+const DOCUMENTATION_URL = "https://docs.aduoer.app";
 const BASE_URL = import.meta.env.BASE_URL;
 const normalizedBaseUrl = `${BASE_URL.replace(/\/+$/, "")}/`;
 const assetUrl = (path: string) =>
