@@ -386,6 +386,26 @@ export default function PhoneDemo({ t, assetUrl }: Props) {
         </div>
       </div>
 
+      <p className="demo__caption" aria-hidden="true">
+        <span className="demo__step-index">
+          {step === 3 ? (
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+          ) : (
+            step + 1
+          )}
+        </span>
+        <span>{step === 3 ? t.done : t.steps[step].title}</span>
+      </p>
+
       <div className="demo__guide">
         <p className="demo__label">{t.label}</p>
         <h2 className="demo__title">{t.title}</h2>

@@ -541,8 +541,10 @@ ol {
 
 .mobile-nav {
   display: none;
+  max-height: calc(100dvh - 90px);
   margin-top: 8px;
   padding: 10px;
+  overflow: auto;
   border-radius: 16px;
 }
 
@@ -997,6 +999,32 @@ ol {
 
 .demo__guide {
   min-width: 0;
+}
+
+// Current step shown right under the phone on small screens, where the
+// full guide sits below the fold while the user is interacting.
+.demo__caption {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.demo__caption .demo__step-index {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 13px;
 }
 
 .demo__label {
@@ -1824,6 +1852,19 @@ ol {
     gap: 26px;
   }
 
+  .demo__stage {
+    gap: 0;
+  }
+
+  .demo__caption {
+    display: inline-flex;
+    max-width: 100%;
+  }
+
+  .demo__caption + .demo__guide .demo__title {
+    margin-top: 4px;
+  }
+
   .phone {
     --phone-w: min(280px, 72vw);
   }
@@ -1884,7 +1925,12 @@ ol {
   }
 
   .hero h1 {
-    font-size: clamp(34px, 10.5vw, 44px);
+    font-size: clamp(30px, 9.4vw, 42px);
+    letter-spacing: -0.03em;
+  }
+
+  .hero__status {
+    font-size: 12.5px;
   }
 
   .hero__actions .button {
