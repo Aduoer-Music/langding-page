@@ -1,16 +1,18 @@
 ---
 import "@styles/styles.scss";
 
-const { seo } = Astro.props as {
+const { seo, lang } = Astro.props as {
   seo?: {
     title: string;
     description: string;
   };
+  lang?: string;
 };
-const title = seo?.title ?? "Aduoer Music - 听见你的每一种声音";
+const title =
+  seo?.title ?? "Aduoer Music – One player for all the music you own";
 const description =
   seo?.description ??
-  "Aduoer 是为 Apple 平台打造的多音乐源播放器，连接在线服务、自建媒体库、NAS 与本地文件。";
+  "Aduoer brings Wow sources, Jellyfin, Navidrome, Plex, NAS folders, cloud drives and local files into one native player for iPhone, iPad, Mac and Apple TV.";
 const baseUrl = import.meta.env.BASE_URL;
 const normalizedBaseUrl = `${baseUrl.replace(/\/+$/, "")}/`;
 const assetUrl = (path: string) =>
@@ -23,13 +25,18 @@ const imageUrl = new URL(assetUrl("og.png"), Astro.site);
 ---
 
 <!doctype html>
-<html lang="zh-Hans">
+<html lang={lang ?? "zh-Hans"}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#ed3561" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f8fafc" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href={assetUrl("app-icon.png")} />
+    <link rel="apple-touch-icon" href={assetUrl("app-icon.png")} />
 
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -47,6 +54,30 @@ const imageUrl = new URL(assetUrl("og.png"), Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+
+    <script is:inline>
+      // Resolve the stored appearance before first paint to avoid a flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem("aduoer-theme");
+          var resolved =
+            stored === "light" || stored === "dark"
+              ? stored
+              : matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.dataset.theme = resolved;
+          root.style.colorScheme = resolved;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta)
+            meta.setAttribute(
+              "content",
+              resolved === "dark" ? "#0b0f17" : "#f8fafc",
+            );
+        } catch (error) {}
+      })();
+    </script>
   </head>
   <body>
     <slot />

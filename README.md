@@ -1,7 +1,9 @@
 # Aduoer Landing Page
 
-A bilingual landing page for Aduoer Music, built with Astro, React, TypeScript,
-and Sass.
+The marketing site for Aduoer Music, built with Astro, React, TypeScript and
+Sass. The home page is available in Simplified Chinese, Traditional Chinese,
+English, Japanese, Korean and German (auto-detected from the browser, with a
+switcher in the navigation). Legal pages remain bilingual (Chinese / English).
 
 ## Local development
 
@@ -16,12 +18,18 @@ corepack pnpm@9.15.9 dev
 corepack pnpm@9.15.9 build
 ```
 
-Pushes to `main` are built and deployed to GitHub Pages by
-`.github/workflows/deploy-pages.yml`.
+Pushes to `main` are deployed automatically by CI.
 
-All product screenshots in `public/screenshots/aduoer-*.png` are captured from
-the iOS Simulator and use a local WoW mock API with entirely fictional music,
-artist, album, playlist, artwork, and lyric data.
+## Interactive demo
+
+`src/modules/home/PhoneDemo.tsx` reproduces the iPhone player flow (mini
+player → now playing → lyrics → swipe to dismiss) with the same timings the app
+uses (`.smooth(0.35)` for presentation, `.smooth(0.45)` for the artwork morph,
+`.snappy(0.5)` when a drag is released). The layers live in
+`public/screenshots/iphone-*.webp`; `iphone-artwork.webp` is the album art
+cropped from the player capture and `iphone-status.png` carries the status bar
+glyphs so they stay put while the artwork animates. Mac and iPad captures use a
+local mock source with fictional music data.
 
 ## Search indexing
 
