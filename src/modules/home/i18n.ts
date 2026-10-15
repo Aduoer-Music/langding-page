@@ -214,7 +214,7 @@ const en: Copy = {
       },
     ],
     keychain:
-      "Passwords and tokens are stored in the system Keychain on your device. Aduoer has no accounts of its own.",
+      "Passwords and tokens are stored in the system Keychain on your device. Aduoer never stores your credentials.",
   },
   features: {
     heading: "Features",
@@ -380,7 +380,7 @@ const zh: Copy = {
         items: [],
       },
     ],
-    keychain: "密码与令牌保存在设备的系统钥匙串中，Aduoer 本身没有账号体系。",
+    keychain: "密码与令牌保存在设备的系统钥匙串中，Aduoer 不存储你的任何凭证。",
   },
   features: {
     heading: "功能",
@@ -545,7 +545,7 @@ const zhHant: Copy = {
         items: [],
       },
     ],
-    keychain: "密碼與權杖保存在裝置的系統鑰匙圈中，Aduoer 本身沒有帳號系統。",
+    keychain: "密碼與權杖保存在裝置的系統鑰匙圈中，Aduoer 不儲存你的任何憑證。",
   },
   features: {
     heading: "功能",
@@ -711,7 +711,7 @@ const ja: Copy = {
       },
     ],
     keychain:
-      "パスワードとトークンはデバイスのシステムキーチェーンに保存されます。Aduoer 独自のアカウントはありません。",
+      "パスワードとトークンはデバイスのシステムキーチェーンに保存されます。Aduoer があなたの認証情報を保存することはありません。",
   },
   features: {
     heading: "機能",
@@ -878,7 +878,7 @@ const ko: Copy = {
       },
     ],
     keychain:
-      "비밀번호와 토큰은 기기의 시스템 키체인에 저장됩니다. Aduoer 자체 계정은 없습니다.",
+      "비밀번호와 토큰은 기기의 시스템 키체인에 저장됩니다. Aduoer는 사용자의 로그인 정보를 저장하지 않습니다.",
   },
   features: {
     heading: "기능",
@@ -1045,7 +1045,7 @@ const de: Copy = {
       },
     ],
     keychain:
-      "Passwörter und Tokens liegen im Schlüsselbund deines Geräts. Aduoer hat kein eigenes Konto.",
+      "Passwörter und Tokens liegen im Schlüsselbund deines Geräts. Aduoer speichert deine Zugangsdaten nicht.",
   },
   features: {
     heading: "Funktionen",
