@@ -5,6 +5,7 @@ const { seo, lang } = Astro.props as {
   seo?: {
     title: string;
     description: string;
+    keywords?: string;
   };
   lang?: string;
 };
@@ -41,6 +42,7 @@ const imageUrl = new URL(assetUrl("og.png"), Astro.site);
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    {seo?.keywords && <meta name="keywords" content={seo.keywords} />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href={assetUrl("sitemap-index.xml")} />
 
