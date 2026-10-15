@@ -227,8 +227,8 @@ const en: Copy = {
         text: "Line-by-line and word-by-word lyrics in a full-screen page that keeps pace with the song.",
       },
       {
-        title: "Singing mode",
-        text: "Separate the vocals from the backing track and turn the voice down to sing along, when the service is available.",
+        title: "All your sources, together",
+        text: "Add as many sources as you like and switch between them in one tap, or turn on the aggregated library to search every source at once and mix their songs into your favourites and playlists.",
       },
       {
         title: "Offline downloads",
@@ -393,8 +393,8 @@ const zh: Copy = {
         text: "逐行与逐字歌词，在全屏歌词页里跟着歌曲一起走。",
       },
       {
-        title: "演唱模式",
-        text: "在服务可用时分离人声与伴奏，把人声调低，跟着一起唱。",
+        title: "多个音乐源，一起听",
+        text: "想加多少源都可以，一键切换；开启聚合源后还能一次搜索全部音乐源，把不同源的歌曲放进同一个收藏和歌单。",
       },
       {
         title: "离线下载",
@@ -558,8 +558,8 @@ const zhHant: Copy = {
         text: "逐行與逐字歌詞，在全螢幕歌詞頁裡跟著歌曲一起走。",
       },
       {
-        title: "演唱模式",
-        text: "在服務可用時分離人聲與伴奏，把人聲調低，跟著一起唱。",
+        title: "多個音樂來源，一起聽",
+        text: "想加多少來源都可以，一鍵切換；開啟聚合來源後還能一次搜尋全部音樂來源，把不同來源的歌曲放進同一個收藏和播放清單。",
       },
       {
         title: "離線下載",
@@ -724,8 +724,8 @@ const ja: Copy = {
         text: "行単位と単語単位の歌詞を、曲に合わせて進む全画面ページで表示します。",
       },
       {
-        title: "シンギングモード",
-        text: "サービスが利用できるときはボーカルと伴奏を分離し、声を下げて一緒に歌えます。",
+        title: "複数のソースをひとつに",
+        text: "ソースはいくつでも追加でき、ワンタップで切り替え。統合ライブラリをオンにすれば、すべてのソースをまとめて検索し、異なるソースの曲を同じお気に入りやプレイリストに入れられます。",
       },
       {
         title: "オフラインダウンロード",
@@ -891,8 +891,8 @@ const ko: Copy = {
         text: "줄 단위와 단어 단위 가사를 노래에 맞춰 흐르는 전체 화면 페이지로 보여 줍니다.",
       },
       {
-        title: "노래 모드",
-        text: "서비스를 사용할 수 있을 때 보컬과 반주를 분리하고, 목소리를 줄여 따라 부를 수 있습니다.",
+        title: "여러 소스를 하나로",
+        text: "소스는 원하는 만큼 추가하고 한 번의 탭으로 전환할 수 있습니다. 통합 보관함을 켜면 모든 소스를 한 번에 검색하고, 서로 다른 소스의 곡을 같은 즐겨찾기와 재생목록에 담을 수 있습니다.",
       },
       {
         title: "오프라인 다운로드",
@@ -1058,8 +1058,8 @@ const de: Copy = {
         text: "Zeilen- und wortgenaue Songtexte auf einer Vollbildseite, die mit dem Song Schritt hält.",
       },
       {
-        title: "Mitsing-Modus",
-        text: "Trennt Gesang und Begleitung und dreht die Stimme leiser zum Mitsingen, sofern der Dienst verfügbar ist.",
+        title: "Alle Quellen, zusammen",
+        text: "Füge beliebig viele Quellen hinzu und wechsle mit einem Tipp. Mit der zusammengeführten Bibliothek durchsuchst du alle Quellen auf einmal und mischst ihre Titel in deine Favoriten und Playlists.",
       },
       {
         title: "Offline-Downloads",

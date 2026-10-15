@@ -7,7 +7,7 @@ import {
   DevicePhoneMobileIcon,
   FolderIcon,
   LockClosedIcon,
-  MicrophoneIcon,
+  Square3Stack3DIcon,
   MoonIcon,
   MusicalNoteIcon,
   ServerStackIcon,
@@ -47,7 +47,7 @@ const sourceIcons: Icon[] = [
 ];
 const featureIcons: Icon[] = [
   MusicalNoteIcon,
-  MicrophoneIcon,
+  Square3Stack3DIcon,
   ArrowDownTrayIcon,
   ArrowPathIcon,
   TagIcon,
