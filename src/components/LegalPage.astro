@@ -437,7 +437,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
     zh: {
       title: "用户支持",
       intro: "获取 Aduoer 使用帮助、问题排查和数据请求支持。",
-      updated: "更新日期：2026 年 8 月 11 日",
+      updated: "更新日期：2026 年 10 月 15 日",
       sections: [
         [
           "使用帮助",
@@ -452,6 +452,14 @@ const pages: Record<Kind, LegalPageDefinition> = {
           ],
         ],
         [
+          "交流群",
+          "也欢迎加入用户群，和其他用户交流使用经验、反馈问题：",
+          [
+            "QQ 群：1097339209，[点击加入](https://qm.qq.com/q/3mzpZFmM36)",
+            "Telegram：[t.me/aduoer](https://t.me/aduoer)",
+          ],
+        ],
+        [
           "隐私与数据请求",
           "访问、更正或删除 Aduoer 官方服务处理的数据时，请在邮件主题中注明“隐私请求”，并提供定位数据所必需的任务 ID、曲目信息和大致请求时间。我们可能需要验证请求人的身份或访问权限。",
         ],
@@ -460,7 +468,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
     en: {
       title: "Support",
       intro: "Get help with Aduoer, troubleshooting, and data requests.",
-      updated: "Last updated: August 11, 2026",
+      updated: "Last updated: October 15, 2026",
       sections: [
         [
           "Using Aduoer",
@@ -475,6 +483,14 @@ const pages: Record<Kind, LegalPageDefinition> = {
           ],
         ],
         [
+          "Community",
+          "You are also welcome to join the user groups to share tips and report issues:",
+          [
+            "QQ group: 1097339209, [join here](https://qm.qq.com/q/3mzpZFmM36)",
+            "Telegram: [t.me/aduoer](https://t.me/aduoer)",
+          ],
+        ],
+        [
           "Privacy and data requests",
           'To access, correct, or delete data processed by an official Aduoer service, use "Privacy Request" in the email subject and include the task ID, track details, and approximate request time needed to locate the data. We may need to verify your identity or authority to access it.',
         ],
@@ -484,6 +500,24 @@ const pages: Record<Kind, LegalPageDefinition> = {
 };
 
 const page = pages[kind];
+
+type Segment = { text: string; href?: string };
+
+// Renders "[label](https://…)" inside copy as a link; everything else is plain text.
+function parseInline(text: string): Segment[] {
+  const segments: Segment[] = [];
+  const pattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  let last = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(text))) {
+    if (match.index > last)
+      segments.push({ text: text.slice(last, match.index) });
+    segments.push({ text: match[1], href: match[2] });
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) segments.push({ text: text.slice(last) });
+  return segments;
+}
 ---
 
 <header class="legal-header">
@@ -551,14 +585,32 @@ const page = pages[kind];
                 {paragraph === "feedback@aduoer.app" ? (
                   <a href={`mailto:${paragraph}`}>{paragraph}</a>
                 ) : (
-                  paragraph
+                  parseInline(paragraph).map((segment) =>
+                    segment.href ? (
+                      <a href={segment.href} target="_blank" rel="noreferrer">
+                        {segment.text}
+                      </a>
+                    ) : (
+                      segment.text
+                    ),
+                  )
                 )}
               </p>
             ))}
             {items && (
               <ul>
                 {items.map((item) => (
-                  <li>{item}</li>
+                  <li>
+                    {parseInline(item).map((segment) =>
+                      segment.href ? (
+                        <a href={segment.href} target="_blank" rel="noreferrer">
+                          {segment.text}
+                        </a>
+                      ) : (
+                        segment.text
+                      ),
+                    )}
+                  </li>
                 ))}
               </ul>
             )}
@@ -581,14 +633,32 @@ const page = pages[kind];
                 {paragraph === "feedback@aduoer.app" ? (
                   <a href={`mailto:${paragraph}`}>{paragraph}</a>
                 ) : (
-                  paragraph
+                  parseInline(paragraph).map((segment) =>
+                    segment.href ? (
+                      <a href={segment.href} target="_blank" rel="noreferrer">
+                        {segment.text}
+                      </a>
+                    ) : (
+                      segment.text
+                    ),
+                  )
                 )}
               </p>
             ))}
             {items && (
               <ul>
                 {items.map((item) => (
-                  <li>{item}</li>
+                  <li>
+                    {parseInline(item).map((segment) =>
+                      segment.href ? (
+                        <a href={segment.href} target="_blank" rel="noreferrer">
+                          {segment.text}
+                        </a>
+                      ) : (
+                        segment.text
+                      ),
+                    )}
+                  </li>
                 ))}
               </ul>
             )}
