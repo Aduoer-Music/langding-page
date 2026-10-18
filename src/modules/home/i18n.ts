@@ -235,8 +235,8 @@ const en: Copy = {
         text: "Download tracks, albums or whole playlists, manage the queue and keep listening with no connection.",
       },
       {
-        title: "Infinite mode",
-        text: "Let the queue continue with recommendations from your source so the music never runs out.",
+        title: "Singing mode (Karaoke)",
+        text: "Separate vocals and accompaniment on your device, adjust the vocal volume and sing along to your favourite songs.",
       },
       {
         title: "Metadata matching",
@@ -401,8 +401,8 @@ const zh: Copy = {
         text: "下载单曲、专辑或整个歌单，管理下载队列，没有网络也照常播放。",
       },
       {
-        title: "无限模式",
-        text: "让队列按音乐源的推荐自动接续，音乐不会停下来。",
+        title: "演唱模式（卡拉 OK）",
+        text: "本地分离人声与伴奏，自由调节人声音量，跟着喜欢的歌曲开唱。",
       },
       {
         title: "元数据匹配",
@@ -566,8 +566,8 @@ const zhHant: Copy = {
         text: "下載單曲、專輯或整個播放清單，管理下載佇列，沒有網路也照常播放。",
       },
       {
-        title: "無限模式",
-        text: "讓佇列依音樂來源的推薦自動接續，音樂不會停下來。",
+        title: "演唱模式（卡拉 OK）",
+        text: "在裝置上分離人聲與伴奏，自由調整人聲音量，跟著喜歡的歌曲開唱。",
       },
       {
         title: "中繼資料比對",
@@ -732,8 +732,8 @@ const ja: Copy = {
         text: "曲、アルバム、プレイリストごとダウンロードしてキューを管理。通信がなくても聴き続けられます。",
       },
       {
-        title: "無限モード",
-        text: "ソースのおすすめでキューを自動的に続け、音楽が途切れません。",
+        title: "歌唱モード（カラオケ）",
+        text: "デバイス上でボーカルと伴奏を分離。ボーカルの音量を調整して、好きな曲を一緒に歌えます。",
       },
       {
         title: "メタデータの照合",
@@ -899,8 +899,8 @@ const ko: Copy = {
         text: "곡, 앨범, 재생목록 전체를 다운로드하고 대기열을 관리해 연결 없이도 계속 들을 수 있습니다.",
       },
       {
-        title: "무한 모드",
-        text: "소스의 추천으로 대기열이 자동으로 이어져 음악이 끊기지 않습니다.",
+        title: "노래 모드 (노래방)",
+        text: "기기에서 보컬과 반주를 분리하고 보컬 음량을 조절해 좋아하는 노래를 따라 부르세요.",
       },
       {
         title: "메타데이터 매칭",
@@ -1066,8 +1066,8 @@ const de: Copy = {
         text: "Lade Titel, Alben oder ganze Playlists, verwalte die Warteschlange und höre ohne Verbindung weiter.",
       },
       {
-        title: "Endlos-Modus",
-        text: "Die Warteschlange läuft mit Empfehlungen deiner Quelle weiter, damit die Musik nie ausgeht.",
+        title: "Gesangsmodus (Karaoke)",
+        text: "Trenne Gesang und Begleitung direkt auf deinem Gerät, passe die Gesangslautstärke an und singe deine Lieblingslieder mit.",
       },
       {
         title: "Metadaten-Abgleich",

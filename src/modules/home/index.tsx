@@ -1,6 +1,6 @@
 import {
   ArrowDownTrayIcon,
-  ArrowPathIcon,
+  MicrophoneIcon,
   Bars3Icon,
   CloudIcon,
   ComputerDesktopIcon,
@@ -49,7 +49,7 @@ const featureIcons: Icon[] = [
   MusicalNoteIcon,
   Square3Stack3DIcon,
   ArrowDownTrayIcon,
-  ArrowPathIcon,
+  MicrophoneIcon,
   TagIcon,
   CloudIcon,
 ];
