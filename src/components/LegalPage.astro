@@ -28,7 +28,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       intro:
         "本政策说明 Aduoer Music（以下简称“Aduoer”）及其官方网站如何处理与你有关的信息，以及你可以如何管理这些信息。",
       created: "发布日期：2026 年 09 月 01 日",
-      updated: "更新日期：2026 年 10 月 10 日",
+      updated: "更新日期：2026 年 10 月 19 日",
       sections: [
         [
           "一、适用范围",
@@ -68,11 +68,10 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "五、网络访问和第三方服务",
           [
-            "当你播放、搜索、收藏、下载、匹配元数据或使用演唱相关功能时，Aduoer 会向你选择或配置的服务发送完成请求所必需的数据。服务运营方可能接收到账号标识、请求内容、IP 地址和设备网络信息。",
+            "当你播放、搜索、收藏、下载、匹配元数据等功能时，Aduoer 会向你选择或配置的服务发送完成请求所必需的数据。服务运营方可能接收到账号标识、请求内容、IP 地址和设备网络信息。",
             "当你使用 SMB、WebDAV 或其他局域网音乐源时，Aduoer 仅访问你指定的服务器和共享目录。仅你明确添加或配置的音乐源和兼容服务端点可以使用 HTTP；Aduoer 的所有第一方和预配置网络连接均使用 HTTPS。HTTP 流量可能被同一网络中的第三方读取或修改，服务支持时应优先使用 HTTPS。",
             "当你使用 App 内第三方接口服务时，Aduoer 可能直接连接相应服务。Aduoer 向此类服务发送的数据仅限歌曲相关元数据信息；各服务运营方会按照其自身的隐私政策和服务条款独立处理数据。",
             "当连接官方 API 服务时，Aduoer 默认连接 https://aduoer-api.waizx.com。元数据匹配可能发送文件名、曲名、歌手、专辑、时长、文件大小、编码格式、内嵌标签或歌词信息以及音频指纹。",
-            "演唱功能可能发送曲目标识、曲名、歌手、专辑、时长和远程音频地址。官方服务会下载该音频并交给音轨分离服务处理；人声与伴奏结果可能保存在对象存储中，以便返回结果和避免重复处理。",
             "Aduoer 官方服务不使用 Aduoer 用户账户、广告标识符或跨 App 标识符关联这些请求。应用日志不会主动记录文件名、曲名、歌手或专辑；基础设施提供方仍可能为安全和故障排查处理 IP 地址、请求时间和基础访问日志。",
             "Aduoer 可能调用 Apple 提供的 Siri、快捷指令、Spotlight、媒体控制、iCloud 和系统备份能力。相关系统功能由 Apple 按其隐私政策处理。",
           ],
@@ -115,7 +114,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           [
             "曲库索引和相关设备端信息会保留到你在 App 中清除、删除对应音乐源或卸载 Aduoer。播放缓存还可能因缓存容量管理或系统清理而删除。你可以在设置中移除音乐源并清理缓存；移除音乐源或撤销网盘授权后，已经下载的文件会继续保留，直到你主动删除。",
             "通过系统卸载 Aduoer 会删除 App 容器中的本地数据，但不会删除你授权访问的原始本地文件、导出文件或保存在 App 容器外的下载。钥匙串项目和系统备份的具体清理由 Apple 平台规则决定。发送给第三方音乐源的数据应按照该服务提供的方式删除。",
-            "官方元数据服务可能把候选元数据和规范曲目信息保存为共享缓存；演唱服务可能保存任务状态和生成的分离音轨。它们会保留到缓存被替换、服务维护清理或有效删除请求被处理。安全和访问日志仅在排障、安全、审计或法律义务所需期间保存。",
+            "官方元数据服务可能把候选元数据和规范曲目信息保存为共享缓存。安全和访问日志仅在排障、安全、审计或法律义务所需期间保存。",
             "官方服务没有 Aduoer 用户账户。申请删除官方服务中的请求数据时，请提供可用于定位数据的任务 ID、曲目信息和大致请求时间。我们只会要求完成请求所必需的信息，并可能验证请求人的身份或访问权限。",
             "你主动发送给我们的反馈会在处理问题及履行合理的安全、审计或法律义务所需期间内保存，之后删除或匿名化。",
           ],
@@ -153,7 +152,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
       intro:
         'This policy explains how Aduoer Music ("Aduoer") and its official website handle information related to you and how you can manage that information.',
       created: "Published: September 1, 2026",
-      updated: "Last updated: October 10, 2026",
+      updated: "Last updated: October 19, 2026",
       sections: [
         [
           "1. Scope",
@@ -193,11 +192,10 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "5. Network access and third-party services",
           [
-            "When you play, search, favorite, download, match metadata, or use singing-related features, Aduoer sends the information necessary to complete the request to services you select or configure. Their operators may receive account identifiers, request content, IP addresses, and device network information.",
+            "When you play, search, favorite, download, match metadata or use other features, Aduoer sends the information necessary to complete the request to services you select or configure. Their operators may receive account identifiers, request content, IP addresses, and device network information.",
             "When using SMB, WebDAV, or another local-network music source, Aduoer accesses only the server and shared directories you specify. Only music sources and compatible-service endpoints you explicitly add or configure may use HTTP; every first-party and preconfigured Aduoer network connection uses HTTPS. HTTP traffic may be readable or modifiable by other parties on the same network; prefer HTTPS whenever the service supports it.",
             "When you use a third-party interface service available in the app, Aduoer may connect directly to that service. Aduoer sends these services only song-related metadata. Each service operator processes data independently under its own privacy policy and terms of service.",
             "When connecting to official API services, Aduoer connects by default to https://aduoer-api.waizx.com. Metadata matching may send a file name, track title, artists, album, duration, file size, codec and format, embedded tags or lyric information, and an audio fingerprint.",
-            "The singing feature may send a track identifier, title, artists, album, duration, and remote audio URL. The official service downloads that audio and sends it to an audio-separation service. Vocal and instrumental results may be stored in object storage so the result can be returned and duplicate processing can be avoided.",
             "Official Aduoer services do not use an Aduoer user account, advertising identifier, or cross-app identifier to associate these requests. Application logs do not intentionally record file names, track titles, artists, or albums. Infrastructure providers may still process IP addresses, request times, and basic access logs for security and troubleshooting.",
             "Aduoer may use Apple-provided features such as Siri, Shortcuts, Spotlight, media controls, iCloud, and system backup. Apple processes information associated with those system features under its own privacy policy.",
           ],
@@ -240,7 +238,7 @@ const pages: Record<Kind, LegalPageDefinition> = {
           [
             "Library indexes and related on-device information remain until you clear them in the app, remove the relevant music source, or uninstall Aduoer. Playback caches may also be removed by cache-capacity management or system cleanup. You can remove sources and clear caches in Settings. Downloads remain after a source is removed or cloud-drive access is revoked until you delete them.",
             "Uninstalling Aduoer through the system removes local data in the app container, but does not delete original local files you authorized it to access, exported files, or downloads stored outside the app container. Removal of Keychain items and system backups is governed by Apple platform behavior. Information sent to third-party music sources should be deleted through the controls offered by those services.",
-            "The official metadata service may retain candidate metadata and canonical track information as shared caches. The singing service may retain task state and generated separated audio. This information remains until the cache is replaced, service maintenance removes it, or a valid deletion request is processed. Security and access logs are retained only as long as needed for troubleshooting, security, audit, or legal obligations.",
+            "The official metadata service may retain candidate metadata and canonical track information as shared caches. This information remains until the cache is replaced, service maintenance removes it, or a valid deletion request is processed. Security and access logs are retained only as long as needed for troubleshooting, security, audit, or legal obligations.",
             "Official services do not maintain Aduoer user accounts. To request deletion of request data held by an official service, include the task ID, track details, and approximate request time needed to locate it. We request only what is necessary and may verify the requester's identity or access authority.",
             "Feedback you send us is retained only as long as reasonably necessary to resolve the request and meet security, audit, or legal obligations, after which it is deleted or anonymized.",
           ],
@@ -278,7 +276,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
     zh: {
       title: "服务条款",
       intro: "使用 Aduoer 或官方网站即表示你同意遵守本条款。",
-      updated: "生效及更新日期：2026 年 10 月 10 日",
+      created: "发布日期：2026 年 09 月 01 日",
+      updated: "更新日期：2026 年 10 月 19 日",
       sections: [
         [
           "一、服务与许可",
@@ -291,15 +290,6 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "三、第三方服务",
           "Aduoer 可连接百度网盘、Google Drive、OneDrive、Jellyfin、Navidrome、WebDAV、SMB 等服务，并可使用 Apple iCloud 同步。各第三方服务由相应运营方独立提供，Aduoer 不隶属于、也不代表这些服务；使用时还需遵守相应服务的条款、授权范围和使用限制。",
-        ],
-        [
-          "百度网盘与离线内容",
-          [
-            "百度网盘功能需由你在百度官方页面登录并授权，用于浏览你选择的目录、建立音乐库、播放和下载你有权使用的音频。Aduoer 会处理文件列表、文件名、文件 ID 与路径、文件大小与版本、音频元数据、授权令牌，以及设备上的音频、封面和歌词缓存；具体用途、保护措施和保存期限见隐私政策。",
-            "你需要确保有权下载、缓存和编辑相应内容。只有你明确选择“保存到原始文件”且获得百度相应写入权限时，Aduoer 才会上传编辑后的音频并覆盖对应文件。网盘权限、速度、配额和可用性由百度的服务规则决定。",
-            "你可在百度网盘“我的 > 设置 > 隐私与个性化设置 > 权限管理”（iOS）或“授权管理”（Android）中找到 Aduoer 并解除授权，也可通过 https://passport.baidu.com 管理第三方授权；部分版本使用“账号管理 > 授权管理”入口。撤销后无法继续通过该授权访问网盘。在 Aduoer 中移除音乐源会清除该源保存的凭据和索引，但不代替百度侧撤销授权；下载和缓存需要另行清理。下载保留到你主动删除，播放缓存还可能因容量管理或系统清理而删除。上述操作不会删除网盘原文件。",
-            "本地文件和下载缓存受操作系统沙盒或保存目录的文件访问权限保护，授权凭据由系统钥匙串保存。Aduoer 不会因浏览、播放或下载而自动上传完整本地文件或下载缓存至官方服务器，不会擅自向其他用户或无关第三方共享、出售或出租这些内容。你主动使用联网辅助功能、文件写回、iCloud 同步或分享时，必要数据按隐私政策及对应功能说明处理。",
-          ],
         ],
         [
           "四、Aduoer 官方服务",
@@ -332,7 +322,8 @@ const pages: Record<Kind, LegalPageDefinition> = {
       title: "Terms of Use",
       intro:
         "By using Aduoer or the official website, you agree to these terms.",
-      updated: "Effective and last updated: October 10, 2026",
+      created: "Published: September 1, 2026",
+      updated: "Last updated: October 19, 2026",
       sections: [
         [
           "1. Service and license",
@@ -345,15 +336,6 @@ const pages: Record<Kind, LegalPageDefinition> = {
         [
           "3. Third-party services",
           "Aduoer can connect to Baidu Netdisk, Google Drive, OneDrive, Jellyfin, Navidrome, WebDAV, SMB, and other services, and can use Apple iCloud for sync. Each third-party service is operated independently by its provider. Aduoer is not affiliated with or acting on behalf of those services. Their terms, authorization scopes, and usage limits also apply when you use them.",
-        ],
-        [
-          "Baidu Netdisk and offline content",
-          [
-            "Baidu Netdisk features require you to sign in and authorize access on Baidu's official page, allowing you to browse selected folders, build a music library, and play and download audio you are entitled to use. Aduoer processes file listings, names, file IDs and paths, sizes and versions, audio metadata, authorization tokens, and on-device audio, artwork, and lyrics caches. Purposes, safeguards, and retention are described in the Privacy Policy.",
-            "You are responsible for having the right to download, cache, and edit the content. Only when you explicitly choose Save to Original File and Baidu grants the required write permission does Aduoer upload edited audio to replace the corresponding file. Netdisk permissions, speed, quotas, and availability depend on Baidu's service rules.",
-            "To revoke access, find Aduoer in Baidu Netdisk under Me > Settings > Privacy and Personalization Settings > Permission Management (iOS) or Authorization Management (Android), or manage third-party authorizations at https://passport.baidu.com. Some versions use Account Management > Authorization Management. Revocation stops further Netdisk access through that authorization. Removing a source in Aduoer clears its saved credentials and indexes but does not revoke authorization on Baidu's side; clear downloads and caches separately. Downloads remain until you delete them; playback caches may also be removed by capacity management or the system. These actions do not delete original Netdisk files.",
-            "Local files and downloaded caches are protected by the operating system's sandbox or the storage folder's file-access permissions, and authorization credentials are stored in the system Keychain. Browsing, playback, and downloading do not automatically upload complete local files or downloaded caches to official Aduoer servers. We do not share these contents with other users or unrelated third parties without your authorization, or sell or rent them. When you choose online supporting features, file writeback, iCloud sync, or sharing, necessary data is processed as described in the Privacy Policy and the relevant feature.",
-          ],
         ],
         [
           "4. Official Aduoer services",
